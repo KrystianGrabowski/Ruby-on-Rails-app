@@ -1,5 +1,5 @@
 class ProductsController < InheritedResources::Base
-  before_action :authenticate_admin_user!, only: [:new]
+  before_action :authenticate_admin_user!, except: [:index, :show]
   private
 
     def product_params
