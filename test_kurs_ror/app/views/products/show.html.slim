@@ -30,6 +30,7 @@ ul
     li
       = comment.content
       = " (#{comment.created_at})"
+      = link_to "Delete",[comment], method: :delete, data: {confirm: "Are you sure?"}, class: 'label alert'
 
 = form_for @comments do |f|
   = f.hidden_field :product_id
