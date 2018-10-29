@@ -5,6 +5,7 @@ class ProductsController < InheritedResources::Base
     @product = Product.find(params[:id])
     @comments = Comment.new(product: @product)
   end
+
   private
 
   def product_params
