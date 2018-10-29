@@ -19,3 +19,19 @@ p
 => link_to 'Edit', edit_product_path(@product)
 '|
 =< link_to 'Back', products_path
+
+
+hr
+
+p
+  strong Comments:
+ul
+  - @product.comments.each do |comment|
+    li
+      = comment.content
+      = " (#{comment.created_at})"
+
+= form_for @comments do |f|
+  = f.hidden_field :product_id
+  p= f.text_area :content, rows: 10
+  p= f.submit
