@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :products
   post "products/rezerwacja" => "products#rezerwacja"
   devise_for :admin_users, ActiveAdmin::Devise.config
