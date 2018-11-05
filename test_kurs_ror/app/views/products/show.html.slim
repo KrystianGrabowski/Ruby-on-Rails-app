@@ -31,7 +31,6 @@ p
 
 hr
 br
-br
 p
   - if admin_user_signed_in?
     p 
@@ -50,5 +49,5 @@ ul
 
 = form_for @comments do |f|
   = f.hidden_field :product_id
-  p= f.text_area :content, rows: 10
+  p= f.text_area :content, rows: 7, cols: 70
   p= f.submit

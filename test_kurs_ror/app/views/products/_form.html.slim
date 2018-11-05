@@ -1,3 +1,6 @@
+style
+  |  label {width: 120px;} 
+
 = form_for @product do |f|
   - if @product.errors.any?
     #error_explanation
@@ -21,4 +24,5 @@
   .field
     = f.label :amount
     = f.number_field :amount
+  br
   .actions = f.submit
