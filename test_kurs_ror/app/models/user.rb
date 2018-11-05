@@ -5,10 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   def display_name
-    if email.present?
-	email
-    else
-	nil
-    end
+    email if email.present?
   end
 end

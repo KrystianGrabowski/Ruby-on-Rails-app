@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
   before_action :authenticate_admin_user!, only: %i[destroy]
+
   def create
-    @comment = Comment.new(params.require(:comment).permit(:content, :product_id).merge(user_id: !current_user ? nil : current_user.id))
+    @comment = Comment.new(params.require(:comment).permit(:content, :product_id).merge(user_id: set_user_id))
     flash[:notice] = if @comment.save
                        'Komentarz został dodany'
                      else
@@ -15,5 +16,11 @@ class CommentsController < ApplicationController
     @comment.destroy
     redirect_back(fallback_location: root_path)
     flash[:notice] = 'Comment was destroyed!'
+  end
+
+  private
+
+  def set_user_id
+    !current_user ? nil : current_user.id
   end
 end

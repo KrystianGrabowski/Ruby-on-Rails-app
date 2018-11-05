@@ -15,7 +15,7 @@ class ProductsController < InheritedResources::Base
   def down_amount
     @comment = Product.find(params[:id])
     @comment.update(amount: params[:amount])
-    puts "coś"
+    puts 'coś'
     redirect_to comment.post
   end
 end
