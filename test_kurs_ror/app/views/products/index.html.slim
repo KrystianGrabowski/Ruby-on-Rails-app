@@ -1,16 +1,21 @@
-h1 Listing products
+h1 Nasze produkty:
 
-table
+style
+  |  table{width: 100%;} tr {height: 35px; border-bottom: 1px solid black;}
+
+table 
   thead
-    tr
-      th Name
-      th Price
-      th Description
-      th Category
-      th Amount
+    tr 
+      th Nazwa
+      th Cena
+      th Opis
+      th Kategoria
+      th Ilość dostępnych sztuk
       th
-      th
-      th
+      - if admin_user_signed_in?
+        th
+      - if admin_user_signed_in?
+        th
 
   tbody
     - @products.each do |product|
@@ -21,9 +26,11 @@ table
         td = product.category
         td = product.amount
         td = link_to 'Show', product
-        td = link_to 'Edit', edit_product_path(product)
-        td = link_to 'Destroy', product, data: { confirm: 'Are you sure?' }, method: :delete
+        - if admin_user_signed_in?
+          td = link_to 'Edit', edit_product_path(product)
+        - if admin_user_signed_in?
+          td = link_to 'Destroy', product, data: { confirm: 'Are you sure?' }, method: :delete
 
 br
-
-= link_to 'New Product', new_product_path
+  - if admin_user_signed_in?
+    = link_to 'New Product', new_product_path

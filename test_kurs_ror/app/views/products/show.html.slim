@@ -1,38 +1,53 @@
-p#notice = notice
-
+p#notice 
 p
-  strong Name:
+  strong Nazwa:
+  br
   = @product.name
 p
-  strong Price:
+  strong Cena:
+  br
   = @product.price
 p
-  strong Description:
+  strong Opis:
+  br
   = @product.description
 p
-  strong Category:
+  strong Kategoria:
+  br
   = @product.category
 p
-  strong Amount:
+  strong Ilość dostępnych sztuk:
+  br
   = @product.amount
 
+br
 => link_to 'Edit', edit_product_path(@product)
 '|
 =< link_to 'Back', products_path
 
+p
+  = button_to 'Zarezerwuj', { :controller => "products", :action => "rezerwacja"}
+
 
 hr
-
+br
 p
-  strong Comments:
+  - if admin_user_signed_in?
+    p 
+      strong
+        a ZALOGOWANO JAKO ADMIN
+  strong Komentarze i opinie o produkcie:
 ul
   - @product.comments.each do |comment|
     li
       = comment.content
-      = " (#{comment.created_at})"
-      = link_to "Delete",[comment], method: :delete, data: {confirm: "Are you sure?"}, class: 'label alert'
+      = " (#{comment.created_at})  "
+      - if comment.user.present?
+        = " by (#{comment.user.display_name})"
+      - if admin_user_signed_in?
+        = link_to "Delete",[comment], method: :delete, data: {confirm: "Are you sure?"}, class: 'label alert'
 
 = form_for @comments do |f|
   = f.hidden_field :product_id
-  p= f.text_area :content, rows: 10
+  p= f.text_area :content, rows: 7, cols: 70
   p= f.submit
