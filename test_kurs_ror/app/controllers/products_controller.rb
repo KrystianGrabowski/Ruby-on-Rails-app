@@ -1,5 +1,5 @@
 class ProductsController < InheritedResources::Base
-  before_action :authenticate_admin_user!, except: %i[index show down reservation ]
+  before_action :authenticate_admin_user!, except: %i[index show down reservation]
 
   def show
     @product = Product.find(params[:id])
@@ -12,10 +12,13 @@ class ProductsController < InheritedResources::Base
 
   def down
     @product = Product.find(params[:id])
-    if @product.amount>0
+    if @product.amount.positive?
       @product.update(amount: @product.amount - 1)
       redirect_to @product
       flash[:notice] = 'Pomyślnie zarezerwowano produkt!'
-    else redirect_to @product; flash[:notice] = 'nie można tego zrobić' end
+    else
+      redirect_to @product
+      flash[:notice] = 'Nie można tego zrobić'
+    end
   end
 end

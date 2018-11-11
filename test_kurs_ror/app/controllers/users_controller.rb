@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_admin_user!
+
   def index
     @users = User.all
   end
@@ -6,8 +8,9 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    if @user.destroy
-      redirect_to users_index_path
-    end
+    return unless @user.destroy
+
+    redirect_to users_index_path
+    flash[:notice] = 'Usunięto użytkownika!'
   end
 end
