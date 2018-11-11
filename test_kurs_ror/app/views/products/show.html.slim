@@ -23,10 +23,10 @@ p
 br
 => link_to 'Edit', edit_product_path(@product)
 '|
-=< link_to 'Back', products_path
+=< link_to 'Back'
 
 p
-  = button_to 'Zarezerwuj', { :controller => "products", :action => "rezerwacja"}
+  = button_to 'Rezerwacja produktu', down_product_path(@product) 
 
 
 hr

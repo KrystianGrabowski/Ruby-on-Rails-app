@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :products
-  post 'products/rezerwacja' => 'products#rezerwacja'
+  resources :products do
+    member do
+      get :down
+      post 'down'
+    end
+  end
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :models
