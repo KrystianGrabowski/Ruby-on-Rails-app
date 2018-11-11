@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  get 'users/index'
   devise_for :users
+  match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
   resources :products do
     member do
       get :down
