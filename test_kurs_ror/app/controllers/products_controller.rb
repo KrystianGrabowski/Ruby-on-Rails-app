@@ -1,5 +1,5 @@
 class ProductsController < InheritedResources::Base
-  before_action :authenticate_admin_user!, except: %i[index show down_amount rezerwacja]
+  before_action :authenticate_admin_user!, except: %i[index show down_amount]
 
   def show
     @product = Product.find(params[:id])
@@ -13,9 +13,7 @@ class ProductsController < InheritedResources::Base
   end
 
   def down_amount
-    @comment = Product.find(params[:id])
-    @comment.update(amount: params[:amount])
-    puts 'coś'
-    redirect_to comment.post
+    @product = Product.find(params[:id])
+    @product.update(amount: @product.amount - 1)
   end
 end
