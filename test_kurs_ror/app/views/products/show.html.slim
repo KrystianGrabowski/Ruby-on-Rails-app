@@ -43,7 +43,7 @@ ul
       = comment.content
       = " (#{comment.created_at})  "
       - if comment.user.present?
-        = " by (#{comment.user.display_name})"
+         =  link_to "(#{comment.user.display_name}) ",  user_path(comment.user.id)
       = link_to "Report", report_comment_path(comment)
       - if admin_user_signed_in?
         = link_to "Delete",[comment], method: :delete, data: {confirm: "Are you sure?"}, class: 'label alert'
