@@ -7,15 +7,13 @@ table.table
     tr
       th Email
       th Created_at
-      th id
       th
 
   tbody
     -@users.each do |user|
       tr
-        td = user.email
+        td = link_to user.email, user_path(user.id)
         td = user.created_at
-        td = user.id
         td = link_to "Destroy", admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" }
 
 
