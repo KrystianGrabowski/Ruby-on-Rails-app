@@ -1,5 +1,5 @@
 style
-  |  label {width: 120px;} 
+  |  label {font-weight: bold; width: 100px; ;} 
 
 = form_for @product do |f|
   - if @product.errors.any?
@@ -8,7 +8,6 @@ style
       ul
         - @product.errors.full_messages.each do |message|
           li = message
-
   .field
     = f.label :name
     = f.text_field :name
@@ -18,6 +17,11 @@ style
   .field
     = f.label :description
     = f.text_area :description
+  .field
+    = f.file_field :picture
+    - if @product.picture.attached?
+       = f.label :remove_picture
+       = f.check_box :remove_picture
   .field
     = f.label :category
     = f.text_field :category

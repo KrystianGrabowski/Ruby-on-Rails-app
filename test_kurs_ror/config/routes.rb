@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
+  get 'users/index'
+  get 'comments/reported'
   devise_for :users
-  resources :products
-  post 'products/rezerwacja' => 'products#rezerwacja'
+  delete 'users/:id', to: 'users#destroy', as: :admin_destroy_user
+  resources :products do
+    member do
+      get :down
+      post 'down'
+    end
+  end
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :models
@@ -10,6 +17,12 @@ Rails.application.routes.draw do
   get 'pages/home'
   get 'pages/contact'
   resources :comments
-
+  resources :comments do
+    member do
+      get :report
+      get :undo_report
+    end
+  end
+  resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

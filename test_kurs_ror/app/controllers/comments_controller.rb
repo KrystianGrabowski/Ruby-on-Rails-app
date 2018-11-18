@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_admin_user!, only: %i[destroy]
+  before_action :authenticate_admin_user!, only: %i[destroy reported undo_report]
 
   def create
-    @comment = Comment.new(params.require(:comment).permit(:content, :product_id).merge(user_id: set_user_id))
+    @comment = Comment.new(params.require(:comment).permit(:content, :product_id).merge(user: current_user))
     flash[:notice] = if @comment.save
                        'Komentarz został dodany'
                      else
@@ -16,6 +16,20 @@ class CommentsController < ApplicationController
     @comment.destroy
     redirect_back(fallback_location: root_path)
     flash[:notice] = 'Comment was destroyed!'
+  end
+
+  def report
+    @comment = Comment.find(params[:id])
+    @comment.update review_request: true
+    redirect_to @comment.product
+    flash[:notice] = 'Comment reported!'
+  end
+
+  def undo_report
+    @comment = Comment.find(params[:id])
+    @comment.update review_request: false
+    redirect_to comments_reported_path
+    flash[:notice] = 'Request rejected!'
   end
 
   private
