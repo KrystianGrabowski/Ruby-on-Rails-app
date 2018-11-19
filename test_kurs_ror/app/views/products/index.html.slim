@@ -1,21 +1,23 @@
 br
-h3 Nowe posty
-.row
-  - @view_model.new_products.each do |product|
-    .col
-      p
-        a href=product_path(product)
-          = product.name
 
-h3 Popularne posty
-.row
-  - @view_model.pupular_products.each do |product|
-    .col
-      p
-        a href=product_path(product)
-          = product.name
-
+- if @products.any?
+  h4 Nowe produkty
+  .row
+    - @view_model.new_products.each do |product|
+      .col
+        p
+          a href=product_path(product) = product.name
 br
+
+- if @products.any?
+  h4 Popularne produkty 
+  .row
+    - @view_model.pupular_products.each do |product|
+      .col
+        p
+          a href=product_path(product) = product.name
+br
+
 h1 Wszystkie nasze produkty:
 br
 table.table
