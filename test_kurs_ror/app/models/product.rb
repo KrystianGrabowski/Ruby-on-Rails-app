@@ -3,6 +3,7 @@ class Product < ApplicationRecord
   validates :name, uniqueness: true
   validates :amount, :price, numericality: { greater_than_or_equal_to: 0 }
   has_many :comments
+  has_many :bookings
   has_one_attached :picture
   attr_accessor :remove_picture
   after_save :purge_picture, if: :remove_picture

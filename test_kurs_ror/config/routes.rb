@@ -2,6 +2,11 @@ Rails.application.routes.draw do
   get 'users/index'
   get 'comments/reported'
   devise_for :users
+  resources :bookings do
+    member do
+      get :restore
+    end
+  end
   delete 'users/:id', to: 'users#destroy', as: :admin_destroy_user
   resources :products
   resources :products do
@@ -17,7 +22,11 @@ Rails.application.routes.draw do
   get 'pages/about'
   get 'pages/home'
   get 'pages/contact'
-  resources :comments
+  resources :comments do
+    member do
+      post :create
+    end
+  end
   resources :comments do
     member do
       get :report

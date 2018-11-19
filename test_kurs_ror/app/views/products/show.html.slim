@@ -28,8 +28,10 @@ br
 '|
 =< link_to 'Back'
 
-p
-  = button_to 'Rezerwacja produktu', down_product_path(@product) 
+= form_for @bookings do |f|
+  = f.hidden_field :product_id
+  p= f.submit
+
 
 
 hr
@@ -55,3 +57,8 @@ ul
   = f.hidden_field :product_id
   p= f.text_area :content, rows: 7, cols: 70
   p= f.submit
+
+= form_for @bookings do |f|
+  = f.hidden_field :product_id
+  p= f.submit
+
