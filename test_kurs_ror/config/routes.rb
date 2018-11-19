@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'comments/reported'
   devise_for :users
   delete 'users/:id', to: 'users#destroy', as: :admin_destroy_user
+  resources :products
   resources :products do
     member do
       get :down

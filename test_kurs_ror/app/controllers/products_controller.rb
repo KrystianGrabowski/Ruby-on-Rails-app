@@ -1,6 +1,11 @@
 class ProductsController < InheritedResources::Base
   before_action :authenticate_admin_user!, except: %i[index show show_picture down reservation]
 
+  def index
+    @products = Product.all
+    @view_model = HomePageViewModel.new
+  end
+
   def show
     @product = Product.find(params[:id])
     @comments = Comment.new(product: @product)
