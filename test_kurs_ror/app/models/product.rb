@@ -7,6 +7,10 @@ class Product < ApplicationRecord
   attr_accessor :remove_picture
   after_save :purge_picture, if: :remove_picture
 
+  def display_price
+     price if price > 0
+  end
+
   private
 
   def purge_picture
