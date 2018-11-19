@@ -1,5 +1,4 @@
 class HomePageViewModel
-
   def featured_product
     Product.last
   end
@@ -11,5 +10,4 @@ class HomePageViewModel
   def pupular_products
     Product.joins(:comments).group(:product_id, :id).order('count(product_id) desc').limit(3)
   end
-
 end

@@ -7,6 +7,5 @@ RSpec.describe User do
     it do
       expect(user.display_name).to eq(user.email)
     end
-
   end
 end

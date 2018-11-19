@@ -1,5 +1,5 @@
 class ProductsController < InheritedResources::Base
-  before_action :authenticate_admin_user!, except: %i[index show show_picture down reservation]
+  before_action :authenticate_admin_user!, except: %i[index show show_picture down show_price reservation]
 
   def index
     @products = Product.all
