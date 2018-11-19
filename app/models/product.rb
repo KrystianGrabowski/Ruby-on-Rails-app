@@ -9,7 +9,7 @@ class Product < ApplicationRecord
   after_save :purge_picture, if: :remove_picture
 
   def display_price
-     price if price > 0
+    price if price.positive?
   end
 
   private
