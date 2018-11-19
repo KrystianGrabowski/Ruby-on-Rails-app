@@ -1,7 +1,15 @@
 br
 
 - if @products.any?
-  h4 Nowe produkty
+  h4 Polecamy nasz najnowszy produkt:
+  .row
+    .col
+      p
+        a href=product_path(@view_model.featured_product) = @view_model.featured_product.name
+br
+
+- if @products.any?
+  h4 Nowe produkty:
   .row
     - @view_model.new_products.each do |product|
       .col
@@ -10,7 +18,7 @@ br
 br
 
 - if @products.any?
-  h4 Popularne produkty 
+  h4 Popularne produkty: 
   .row
     - @view_model.pupular_products.each do |product|
       .col
