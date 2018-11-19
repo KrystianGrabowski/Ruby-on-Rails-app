@@ -1,9 +1,22 @@
-div
-  - @products.each do |product|
-      p = product.name
+br
+h3 Nowe posty
+.row
+  - @view_model.new_products.each do |product|
+    .col
+      p
+        a href=product_path(product)
+          = product.name
+
+h3 Popularne posty
+.row
+  - @view_model.pupular_products.each do |product|
+    .col
+      p
+        a href=product_path(product)
+          = product.name
 
 br
-h1 Nasze produkty:
+h1 Wszystkie nasze produkty:
 br
 table.table
   thead
