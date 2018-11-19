@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     end
   end
   delete 'users/:id', to: 'users#destroy', as: :admin_destroy_user
+  resources :products
   resources :products do
     member do
       get :down

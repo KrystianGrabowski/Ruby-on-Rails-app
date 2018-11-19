@@ -1,9 +1,32 @@
-div
-  - @products.each do |product|
-      p = product.name
-
 br
-h1 Nasze produkty:
+
+- if @products.any?
+  h4 Polecamy nasz najnowszy produkt:
+  .row
+    .col
+      p
+        a href=product_path(@view_model.featured_product) = @view_model.featured_product.name
+br
+
+- if @products.any?
+  h4 Nowe produkty:
+  .row
+    - @view_model.new_products.each do |product|
+      .col
+        p
+          a href=product_path(product) = product.name
+br
+
+- if @products.any?
+  h4 Popularne produkty: 
+  .row
+    - @view_model.pupular_products.each do |product|
+      .col
+        p
+          a href=product_path(product) = product.name
+br
+
+h1 Wszystkie nasze produkty:
 br
 table.table
   thead
@@ -23,7 +46,7 @@ table.table
     - @products.each do |product|
       tr
         td = product.name
-        td = product.price
+        td = number_to_currency(product.price,locale: :pl)<<' PLN'
         td = product.description
         td = product.category
         td = product.amount

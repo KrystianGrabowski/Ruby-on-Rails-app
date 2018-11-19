@@ -9,7 +9,7 @@ p
 p
   strong Cena:
   br
-  = @product.price
+  = number_to_currency(@product.price,locale: :pl)<<' PLN'
 p
   strong Opis:
   br
