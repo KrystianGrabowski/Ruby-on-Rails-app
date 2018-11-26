@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Booking do
   let(:product) { FactoryBot.create :product }
   context 'when booking is created' do
-    let(:booking) {product.bookings.create!}
+    let(:booking) { product.bookings.create! }
 
     it 'always relates to the same product' do
       expect(product).to eq(booking.product)
@@ -15,12 +15,9 @@ RSpec.describe Booking do
   end
 
   describe '#display_status' do
-    let(:booking) {product.bookings.create(returned: true)}
+    let(:booking) { product.bookings.create(returned: true) }
     it do
-      expect(booking.display_status).to be true      
+      expect(booking.display_status).to be true
     end
   end
-
-
-
 end

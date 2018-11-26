@@ -4,7 +4,7 @@ class Booking < ApplicationRecord
 
   def display_status
     return true if returned?
+
     end_date
   end
-
 end
