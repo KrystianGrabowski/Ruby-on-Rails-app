@@ -14,7 +14,7 @@ class Product < ApplicationRecord
   end
 
   def display_in_pln
-    number_to_currency(price,locale: :pl) + ' PLN'
+    number_to_currency(price, locale: :pl) + ' PLN'
   end
 
   private

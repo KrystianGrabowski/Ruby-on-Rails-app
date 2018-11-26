@@ -10,16 +10,15 @@ RSpec.describe Product do
   end
 
   describe '#display_in_pln' do
-    it do 
-      puts "\n" + product.display_in_pln + "\n" 
+    it do
+      puts "\n" + product.display_in_pln + "\n"
       expect(product.display_in_pln[-4..-1]).to eq(' PLN')
     end
   end
 
-	context 'when there is free item' do
-		let(:product) { FactoryBot.create :product, price: 0 }
+  context 'when there is free item' do
+    let(:product) { FactoryBot.create :product, price: 0 }
 
-		it { expect(product.display_price).to eq(nil) }
-	end
-
+    it { expect(product.display_price).to eq(nil) }
+  end
 end
