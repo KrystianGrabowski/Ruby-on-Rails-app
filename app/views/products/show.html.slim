@@ -33,7 +33,8 @@ br
   p= f.submit
 
 
-
+= link_to add_to_cart_product_path(@product) do
+      | Dodaj do koszyka 
 hr
 br
 p
@@ -52,6 +53,7 @@ ul
       = link_to "Report", report_comment_path(comment)
       - if admin_user_signed_in?
         = link_to "Delete",[comment], method: :delete, data: {confirm: "Are you sure?"}, class: 'label alert'
+
 
 = form_for @comments do |f|
   = f.hidden_field :product_id

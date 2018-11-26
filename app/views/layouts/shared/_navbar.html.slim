@@ -11,6 +11,9 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
         a.nav-link href=user_root_path
           | User panel
       li.nav-item
+        a.nav-link href=carts_path 
+          = "Cart (#{current_guest.cart.order_items.size})"
+      li.nav-item
         a.nav-link href=new_user_registration_path  Sign up
       li.nav-item
         a.nav-link href=user_session_path  Sign in

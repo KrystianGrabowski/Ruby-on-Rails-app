@@ -12,8 +12,14 @@ Rails.application.routes.draw do
   resources :products
   resources :products do
     member do
+      get :add_to_cart
       get :down
       post 'down'
+    end
+  end
+  resources :carts, only: [:index] do
+    collection do
+      post :confirm
     end
   end
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -32,6 +38,15 @@ Rails.application.routes.draw do
     member do
       get :report
       get :undo_report
+    end
+  end
+  namespace :user_panel, path: 'user' do
+    root to: 'profile#index'
+
+    resources :orders, only: %i[show index] do
+      member do
+        patch :confirm
+      end
     end
   end
   resources :users
