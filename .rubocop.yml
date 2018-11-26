@@ -18,7 +18,7 @@ Style/AsciiComments:
   Enabled: false
 
 Metrics/AbcSize:
-  Enabled: false
+  Enabled: true
 
 Metrics/BlockLength:
   Exclude:
