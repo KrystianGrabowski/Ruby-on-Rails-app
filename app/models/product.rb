@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  include ActionView::Helpers::NumberHelper
   validates :name, :price, :category, :amount, presence: true
   validates :name, uniqueness: true
   validates :amount, :price, numericality: { greater_than_or_equal_to: 0 }
@@ -10,6 +11,10 @@ class Product < ApplicationRecord
 
   def display_price
     price if price.positive?
+  end
+
+  def display_in_pln
+    number_to_currency(price,locale: :pl) + ' PLN'
   end
 
   private
