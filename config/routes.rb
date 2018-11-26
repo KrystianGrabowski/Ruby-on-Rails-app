@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'users/index'
+  get 'bookings/user_bookings'
   get 'comments/reported'
   devise_for :users
   resources :bookings do

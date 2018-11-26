@@ -16,4 +16,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
         a.nav-link href=user_session_path  Sign in
       li.nav-item
         - if user_signed_in?
+          a.nav-link href="/bookings/user_bookings"  Rezerwacje
+      li.nav-item
+        - if user_signed_in?
           a.nav-link.disabled data-method='delete' href=destroy_user_session_path Logout

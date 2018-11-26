@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :authenticate_admin_user!, only: %i[index destroy]
+  before_action :authenticate_user!, only: %i[user_bookings]
 
   def create
     product = Product.find(params[:booking][:product_id])
@@ -29,5 +30,10 @@ class BookingsController < ApplicationController
     @product.update amount: @product.amount + 1
     @booking.update returned: true
     redirect_to bookings_path
+  end
+
+  def user_bookings
+    @user_name = current_user.email
+    @bookings = Booking.all.where(user_name: current_user.email)
   end
 end
