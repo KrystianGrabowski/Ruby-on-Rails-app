@@ -2,15 +2,14 @@ class BookingsController < ApplicationController
   before_action :authenticate_admin_user!, only: %i[index destroy]
 
   def create
-    @booking = Booking.new(params.require(:booking).permit(:product_id).merge(start_date: Time.now, end_date: Time.now + 10.days))
-    @product = Product.find(@booking.product_id)
-    @booking.product_name = @product.name
-    @booking.user_name = !current_user ? 'gość' : current_user.email
-    if @product.amount.positive?
-      @product.update(amount: @product.amount - 1)
-      flash[:notice] = @booking.save ? 'Rezerwacja została dodana' : 'Nie można tego zrobić' else flash[:notice] = 'Nie można tego zrobić'
-    end
-    redirect_to @product
+    product = Product.find(params[:booking][:product_id])
+    outcome = CreateBooking.run(user: current_user, product: product)
+    flash[:notice] = if outcome.valid?
+                       'Rezerwacja została dodana'
+                     else
+                       'Nie można tego zrobić'
+                     end
+    redirect_to product
   end
 
   def index
