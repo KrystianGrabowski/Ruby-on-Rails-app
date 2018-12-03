@@ -40,15 +40,6 @@ Rails.application.routes.draw do
       get :undo_report
     end
   end
-  namespace :user_panel, path: 'user' do
-    root to: 'profile#index'
-
-    resources :orders, only: %i[show index] do
-      member do
-        patch :confirm
-      end
-    end
-  end
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
