@@ -12,7 +12,7 @@ table.table
 
 
 
-= button_to 'Rezerwacja produktów z koszyka', finalize_cart_path(@cart) 
+= button_to 'Rezerwacja produktów z koszyka', finalize_cart_path(@cart), data: { confirm: "Jesteś pewny? Będzie Cię to kosztowało #{number_to_currency(@value,locale: :pl)<<' PLN'}" }
 
 
 
