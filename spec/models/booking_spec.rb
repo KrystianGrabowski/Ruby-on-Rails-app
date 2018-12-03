@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Booking do
-  let(:product) { FactoryBot.create :product }
+  let(:product) { create :product }
   context 'when booking is created' do
     let(:booking) { product.bookings.create! }
 

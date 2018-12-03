@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe BookingsController, type: :controller do
-  let(:product) { FactoryBot.create :product }
+  let(:product) { create :product }
 
   describe 'POST #create' do
     subject { post :create, params: { booking: { product_id: product.id } } }
@@ -39,7 +39,7 @@ RSpec.describe BookingsController, type: :controller do
 
   describe 'GET #index' do
     subject { get :index }
-    let(:admin) { FactoryBot.create :admin_user }
+    let(:admin) { create :admin_user }
 
     it do
       sign_in admin
@@ -49,9 +49,9 @@ RSpec.describe BookingsController, type: :controller do
 
   describe 'DELETE #destroy' do
     subject { delete :destroy, params: { id: booking.id } }
-    let(:product) { FactoryBot.create :product }
-    let(:booking) { FactoryBot.create :booking, product_id: product.id }
-    let(:admin) { FactoryBot.create :admin_user }
+    let(:product) { create :product }
+    let(:booking) { create :booking, product_id: product.id }
+    let(:admin) { create :admin_user }
 
     it do
       sign_in admin
@@ -67,8 +67,8 @@ RSpec.describe BookingsController, type: :controller do
 
   describe 'PATCH #restore' do
     subject { patch :restore, params: { id: booking.id } }
-    let(:product) { FactoryBot.create :product }
-    let(:booking) { FactoryBot.create :booking, product_id: product.id }
+    let(:product) { create :product }
+    let(:booking) { create :booking, product_id: product.id }
 
     it do
       expect(subject).to redirect_to(bookings_path)
@@ -85,7 +85,7 @@ RSpec.describe BookingsController, type: :controller do
 
   describe 'GET #user_bookings' do
     subject { patch :user_bookings }
-    let(:user) { FactoryBot.create :user }
+    let(:user) { create :user }
     it do
       sign_in user
       expect(subject.status).to eq(200)

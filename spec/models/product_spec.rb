@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Product do
-  let(:product) { FactoryBot.create :product }
+  let(:product) { create :product }
 
   describe '#display_price' do
     it do
@@ -17,7 +17,7 @@ RSpec.describe Product do
   end
 
   context 'when there is free item' do
-    let(:product) { FactoryBot.create :product, price: 0 }
+    let(:product) { create :product, price: 0 }
 
     it { expect(product.display_price).to eq(nil) }
   end
