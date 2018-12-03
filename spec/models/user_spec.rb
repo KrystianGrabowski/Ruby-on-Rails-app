@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User do
-  let(:user) { FactoryBot.create :user }
+  let(:user) { create :user }
 
   describe '#display_name' do
     it do

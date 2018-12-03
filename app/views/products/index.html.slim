@@ -20,7 +20,7 @@ br
 - if @products.any?
   h4 Popularne produkty: 
   .row
-    - @view_model.pupular_products.each do |product|
+    - @view_model.popular_products.each do |product|
       .col
         p
           a href=product_path(product) = product.name
