@@ -25,6 +25,7 @@ class CreateBooking < ActiveInteraction::Base
 
   def owner_update
     @booking.user_name = !user ? 'gość' : user.email
+    @booking.user_id = user.id if user
   end
 
   def name_update
