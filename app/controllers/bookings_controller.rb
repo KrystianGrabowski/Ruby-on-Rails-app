@@ -33,6 +33,7 @@ class BookingsController < ApplicationController
   end
 
   def user_bookings
+    @current_name = current_user.email
     @bookings = current_user.bookings
   end
 end

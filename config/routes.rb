@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   get 'bookings/user_bookings'
   get 'comments/reported'
   devise_for :users
+  resources :carts do
+    member do
+      get :finalize
+      post 'finalize'
+    end
+  end
   resources :bookings do
     member do
       get :restore
@@ -15,11 +21,6 @@ Rails.application.routes.draw do
       get :add_to_cart
       get :down
       post 'down'
-    end
-  end
-  resources :carts, only: [:index] do
-    collection do
-      post :confirm
     end
   end
   devise_for :admin_users, ActiveAdmin::Devise.config
