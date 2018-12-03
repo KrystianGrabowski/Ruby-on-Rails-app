@@ -34,6 +34,7 @@ class BookingsController < ApplicationController
 
   def user_bookings
     @user_name = current_user.email
+    #@bookings = current_user.bookings
     @bookings = Booking.all.where(user_name: current_user.email)
   end
 end
