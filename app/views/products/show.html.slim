@@ -26,15 +26,15 @@ p
 br
 => link_to 'Edit', edit_product_path(@product)
 '|
-=< link_to 'Back'
+=< link_to 'Back', products_path
 
 = form_for @bookings do |f|
   = f.hidden_field :product_id
   p= f.submit
 
 
-= link_to add_to_cart_product_path(@product) do
-      | Dodaj do koszyka 
+= link_to 'Dodaj do koszyka', add_to_cart_product_path(@product) 
+
 hr
 br
 p
