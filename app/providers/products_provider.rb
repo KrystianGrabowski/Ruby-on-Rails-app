@@ -10,7 +10,7 @@ class ProductsProvider
     @results = if key.blank?
                  []
                else
-                 @results.where('lower(name) like ?', "%#{key[:key].downcase}%").first(6)
+                 @results.where('lower(name) like ?', "%#{key[:key].downcase}%")
                end
   end
 end

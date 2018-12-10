@@ -1,9 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe CommentsController, type: :controller do
-
-
-
   describe 'DELETE #destroy' do
     subject { delete :destroy, params: { id: comment.id } }
     let(:product) { create :product }
@@ -57,6 +54,4 @@ RSpec.describe CommentsController, type: :controller do
       expect(controller.flash[:notice]).to eq('Request rejected!')
     end
   end
- 
-
 end
