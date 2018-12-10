@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe CartsController, type: :controller do
-
   describe 'GET #index' do
     subject { get :index }
     let(:admin) { create :admin_user }
@@ -11,8 +10,4 @@ RSpec.describe CartsController, type: :controller do
       expect(subject.status).to eq(200)
     end
   end
-
-
- 
-
 end
