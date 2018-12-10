@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_admin_user!, only: %i[destroy reported undo_report]
+  before_action :authenticate_admin_user!, only: %i[destroy undo_report]
 
   def create
     @comment = Comment.new(params.require(:comment).permit(:content, :product_id).merge(user: current_user))

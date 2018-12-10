@@ -21,4 +21,12 @@ class Order < ApplicationRecord
     end
     check_string s, s2
   end
+
+  def cart_sum_check
+    s = 0
+    order_items.each do |item|
+      s += item.product.price if item.product.amount.positive?
+    end
+    s
+  end
 end
