@@ -37,7 +37,7 @@ javascript:
     $('.search-results ul').html('')
     $.get('/api/products', {key: testInput}, function(result) {
       for (var i in result) {
-        $('.search-results ul').append($('<li><a href="#">' + result[i].name + '</a></li>'))
+        $('.search-results ul').append($('<li><a href=' + result[i].id.to_s + '>' + result[i].name + '</a></li>'))
       }
     })
   })
