@@ -7,7 +7,6 @@ h2
     br
     = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
     .invalid-feedback
-      Ten e-mail jest już zajęty
   .field.form-group
     = f.label :password
     - if @minimum_password_length
@@ -31,6 +30,13 @@ javascript:
      $.get('/api/users/email_exists', {email: $(this).val()}, function(response) {
         if(response === true) {
           $('input[name="user[email]"]').addClass('is-invalid')
+          $('.invalid-feedback').text("Ten e-mail jest już zajęty");
+        }
+    })
+     $.get('/api/users/email_correct', {email: $(this).val()}, function(response) {
+        if(response === false) {
+          $('input[name="user[email]"]').addClass('is-invalid')
+          $('.invalid-feedback').text("Niepoprawny email");
         }
     })
   })

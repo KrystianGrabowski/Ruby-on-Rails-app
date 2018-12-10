@@ -47,6 +47,7 @@ Rails.application.routes.draw do
   resources :users
   namespace :api do
     get 'users/email_exists', to: 'users#email_exists'
+    get 'users/email_correct', to: 'users#email_correct'
     resources :courses, only: [:index]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
