@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   get 'bookings/user_bookings'
   get 'comments/reported'
   devise_for :users
+  namespace :api do
+    resources :products, only: [:index]
+  end
   resources :carts do
     member do
       get :finalize
