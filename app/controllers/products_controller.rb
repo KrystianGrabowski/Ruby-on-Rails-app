@@ -15,20 +15,11 @@ class ProductsController < InheritedResources::Base
     super
   end
 
-  def category_check
-    if !params[:category].nil?
-      @products.where(category: params[:category])
-    elsif (params[:category] == 'all') || (params[:category] == 'wszystkie')
-      @products.all
-    end
-  end
-
   def index
-    @products_all = Product.all # debbuging - nie ruszać
     @products = ProductsProvider.new(params[:key]).results
-    @caption = 'Nasze produkty:'
-    category_check
-
+    # @caption = 'Nasze produkty:'
+    @products = Product.all.where(category: params[:category]) unless params[:category].nil? # umyślnie wszystko
+    @products = Product.all if params[:category] == 'wszystkie'
     @products = @products.page(params[:page]).per(5)
     @view_model = HomePageViewModel.new
   end
@@ -60,18 +51,16 @@ class ProductsController < InheritedResources::Base
   def category_link(base_path, new_category, other_params)
     url_params = { category: new_category }.merge(other_params)
     url = "#{base_path}?#{url_params.to_query}"
-
     "<a href='#{url}'>#{new_category}</a> <br>".html_safe
   end
 
-  def cat
+  def cat # do naprawienia
     tab = []
     @products.each do |p|
-      tab += [p] if tab.include?(p)
+      tab += [p.category] unless tab.include?(p.category)
     end
-    category_link(products_path, 'wszystkie', {})
-    tab.each do |p|
-      category_link(products_path, p, {})
+    tab.each do |elem|
+      category_link(products_path, elem, {})
     end
   end
 end
