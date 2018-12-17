@@ -31,7 +31,7 @@ RSpec.describe Api::UsersController do
     end
 
     context 'when email is invalid - 1' do
-      let(:email) { 'user@example' }
+      let(:email) { 'userexample' }
 
       it do
         expect(subject).to be_successful
