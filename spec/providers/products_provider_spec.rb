@@ -29,5 +29,18 @@ RSpec.describe ProductsProvider do
 
       it { is_expected.to be_blank }
     end
+
+    context 'when words are not in order' do 
+      let(:key) { 'najlepszy nasz' }
+
+      it { is_expected.to include(product0) }
+    end
+
+
+    context do 
+      let(:key) { 'naszs najlepszy' }
+
+      it { is_expected.to include(product0) }
+    end
   end
 end

@@ -7,10 +7,12 @@ class ProductsProvider
   end
 
   def filter_by_key(key)
-    @results = if key.blank?
+    @results = if key.nil?
+                 @results
+               elsif key == ""
                  []
                else
-                 @results.where('lower(name) like ?', "%#{key.downcase}%")
+                 @results.search(key)
                end
   end
 end

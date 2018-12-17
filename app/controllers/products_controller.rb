@@ -16,6 +16,7 @@ class ProductsController < InheritedResources::Base
 
   def index
     @products = Product.all
+    @products = @products.page(params[:page]).per(5)
     @view_model = HomePageViewModel.new
   end
 
