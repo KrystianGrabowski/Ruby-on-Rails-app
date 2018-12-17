@@ -20,6 +20,7 @@ gem 'bootstrap', '~> 4.1.3'
 gem 'devise'
 gem 'money-rails', '~>1.12'
 gem 'slim-rails'
+gem 'kaminari'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
