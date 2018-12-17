@@ -15,13 +15,15 @@ class ProductsController < InheritedResources::Base
     super
   end
 
-  def index
-    @products = ProductsProvider.new(params[:key]).results
-    # @caption = 'Nasze produkty:'
+  def index_rubcop_help
     @products = @products.where(category: params[:category]) unless params[:category].nil? # umyślnie wszystko
-    # @products = Product.all if params[:category] == 'wszystkie'
     @products = @products.page(params[:page]).per(5)
     @view_model = HomePageViewModel.new
+  end
+
+  def index
+    @products = ProductsProvider.new(params[:key]).results
+    index_rubcop_help
   end
 
   def show
