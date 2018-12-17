@@ -6,6 +6,12 @@ RSpec.describe ProductsProvider do
   describe '#results' do
     subject { described_class.new(key).results }
 
+    context 'when key is nil' do
+      let(:key) { nil }
+
+      it { is_expected.to include(product0) }
+    end
+
     context 'when key is lowercased' do
       let(:key) { 'nasz'  }
 
@@ -27,7 +33,7 @@ RSpec.describe ProductsProvider do
     context 'when key is empty' do
       let(:key) { '' }
 
-      it { is_expected.to be_blank }
+      it { is_expected.to include(product0) }
     end
 
     context 'when words are not in order' do

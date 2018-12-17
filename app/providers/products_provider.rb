@@ -7,10 +7,8 @@ class ProductsProvider
   end
 
   def filter_by_key(key)
-    @results = if key.nil?
+    @results = if key.nil? || (key == '')
                  @results
-               elsif key == ''
-                 []
                else
                  @results.search(key)
                end
