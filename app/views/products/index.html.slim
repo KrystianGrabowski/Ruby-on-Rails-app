@@ -27,6 +27,18 @@ br
 br
 
 h1 = @caption
+
+
+br
+h6 Przykładowe kategorie:
+p= category_link(products_path, 'wszystkie', {})
+p= category_link(products_path, 'books', {})
+p= category_link(products_path, 'cars', {})
+p= category_link(products_path, 'Samochody', {})
+br 
+h6 Wszystkie kategorie:
+p= cat
+
 br
 table.table
   thead
