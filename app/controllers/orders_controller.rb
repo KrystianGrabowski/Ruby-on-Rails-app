@@ -9,16 +9,6 @@ class OrdersController < ApplicationController
     @order = attach_order
   end
 
-  def confirm
-    order = current_user.orders.pending.find(params[:id])
-    order.update(
-      comment: params[:order][:comment],
-      status: Order::CONFIRMED_ORDER_STATUS
-    )
-
-    redirect_to user_panel_order_path(order)
-  end
-
   private
 
   def attach_order
