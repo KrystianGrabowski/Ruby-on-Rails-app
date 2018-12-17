@@ -2,7 +2,7 @@ class CartsController < ApplicationController
   before_action :authenticate_user!, only: %i[finalize]
 
   def index
-    add_breadcrumb "Cart", :carts_path
+    add_breadcrumb 'Cart', :carts_path
     @cart = current_guest.cart
     @value = @cart.cart_sum_check
   end

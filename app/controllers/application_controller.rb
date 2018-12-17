@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   helper_method :current_guest
-  add_breadcrumb "Home", :root_path
+  add_breadcrumb 'Home', :root_path
   def current_guest
     existing_guest || new_guest
   end

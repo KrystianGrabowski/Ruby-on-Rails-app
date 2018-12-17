@@ -14,3 +14,33 @@
 //= require popper
 //= require bootstrap
 //= require_tree .
+
+$(document).ready(function() {
+  console.log($('.main-search'))
+  $('.main-search').keyup(debounce(function() {
+    var testInput = $(this).val()
+
+    $('.search-results ul').html('')
+
+    $.get('/api/courses', {key: testInput}, function(result) {
+      for (var i in result) {
+        $('.search-results ul').append($('<li><a href="#">' + result[i].name + '</a></li>'))
+      }
+    })
+  }, 300))
+})
+
+function debounce(func, wait, immediate) {
+  var timeout;
+  return function() {
+    var context = this, args = arguments;
+    var later = function() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+};
