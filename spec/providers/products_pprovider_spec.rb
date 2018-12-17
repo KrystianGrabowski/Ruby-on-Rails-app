@@ -7,19 +7,19 @@ RSpec.describe ProductsProvider do
     subject { described_class.new(key).results }
 
     context 'when key is lowercased' do
-      let(:key) { { key: 'nasz' } }
+      let(:key) { 'nasz'  }
 
       it { is_expected.to include(product0) }
     end
 
     context 'when key is a prefix' do
-      let(:key) { { key: 'Nasz' } }
+      let(:key) { 'Nasz'  }
 
       it { is_expected.to include(product0) }
     end
 
     context 'when key is in the middle' do
-      let(:key) { { key: 'najlepszy' } }
+      let(:key) { 'najlepszy' }
 
       it { is_expected.to include(product0) }
     end

@@ -30,7 +30,7 @@ RSpec.describe Api::UsersController do
       expect(JSON.parse(subject.body)).to eq(true)
     end
 
-    context 'when email is invalid1' do
+    context 'when email is invalid - 1' do
       let(:email) { 'user@example' }
 
       it do
@@ -39,7 +39,7 @@ RSpec.describe Api::UsersController do
       end
     end
 
-    context 'when email is invalid2' do
+    context 'when email is invalid - 2' do
       let(:email) { 'userexample.com' }
 
       it do
