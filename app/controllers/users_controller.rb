@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   before_action :authenticate_admin_user!, except: %i[show]
-  add_breadcrumb "Users", :users_path
+  add_breadcrumb 'Users', :users_path
   def show
     @user = User.find(params[:id])
-    add_breadcrumb "#{@user.display_name}", :user_path
+    add_breadcrumb @user.display_name.to_s, :user_path
     @comments = @user.comments.sort.group_by(&:product)
   end
 

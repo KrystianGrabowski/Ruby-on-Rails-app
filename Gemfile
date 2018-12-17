@@ -18,10 +18,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'activeadmin'
 gem 'bootstrap', '~> 4.1.3'
 gem 'devise'
-gem 'money-rails', '~>1.12'
-gem 'slim-rails'
 gem 'kaminari'
+gem 'money-rails', '~>1.12'
 gem 'pg_search'
+gem 'slim-rails'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -49,7 +49,7 @@ gem 'mini_magick'
 
 gem 'active_model_serializers'
 
-gem "breadcrumbs_on_rails"
+gem 'breadcrumbs_on_rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

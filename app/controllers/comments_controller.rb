@@ -33,7 +33,7 @@ class CommentsController < ApplicationController
 
   def reported
     @reported_comments = Comment.where(review_request: true)
-    add_breadcrumb "Reported comments", comments_reported_path
+    add_breadcrumb 'Reported comments', comments_reported_path
   end
 
   private
