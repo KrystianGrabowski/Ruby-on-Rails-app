@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
   before_action :authenticate_admin_user!, only: %i[destroy undo_report]
-
   def create
     @comment = Comment.new(params.require(:comment).permit(:content, :product_id).merge(user: current_user))
     flash[:notice] = if @comment.save
@@ -30,6 +29,11 @@ class CommentsController < ApplicationController
     @comment.update review_request: false
     redirect_to comments_reported_path
     flash[:notice] = 'Request rejected!'
+  end
+
+  def reported
+    @reported_comments = Comment.where(review_request: true)
+    add_breadcrumb "Reported comments", comments_reported_path
   end
 
   private

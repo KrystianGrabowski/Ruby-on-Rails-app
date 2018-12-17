@@ -16,7 +16,7 @@ table.table-bordered
       th
 
   tbody
-    - Comment.where(review_request: true).each do |comment|
+    - @reported_comments.each do |comment|
       tr
         td = comment.content
         - if comment.user.present?

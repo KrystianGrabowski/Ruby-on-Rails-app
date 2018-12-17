@@ -1,5 +1,18 @@
 class ProductsController < InheritedResources::Base
   before_action :authenticate_admin_user!, except: %i[index show show_picture down show_price reservation add_to_cart]
+  add_breadcrumb "Products", :products_path
+
+  def new
+    add_breadcrumb "New", :new_product_path
+    super
+  end
+
+  def edit
+    @product = Product.find(params[:id])
+    add_breadcrumb "#{@product.name}", product_path
+    add_breadcrumb "Edit", :edit_product_path
+    super
+  end
 
   def index
     @products = Product.all
@@ -8,6 +21,7 @@ class ProductsController < InheritedResources::Base
 
   def show
     @product = Product.find(params[:id])
+    add_breadcrumb "#{@product.name}", product_path
     @comments = Comment.new(product: @product)
     @bookings = Booking.new(product: @product)
   end
