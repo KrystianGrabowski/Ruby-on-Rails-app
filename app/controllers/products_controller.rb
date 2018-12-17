@@ -18,8 +18,8 @@ class ProductsController < InheritedResources::Base
   def index
     @products = ProductsProvider.new(params[:key]).results
     # @caption = 'Nasze produkty:'
-    @products = Product.all.where(category: params[:category]) unless params[:category].nil? # umyślnie wszystko
-    @products = Product.all if params[:category] == 'wszystkie'
+    @products = @products.where(category: params[:category]) unless params[:category].nil? # umyślnie wszystko
+    # @products = Product.all if params[:category] == 'wszystkie'
     @products = @products.page(params[:page]).per(5)
     @view_model = HomePageViewModel.new
   end
@@ -48,19 +48,23 @@ class ProductsController < InheritedResources::Base
     redirect_to products_path
   end
 
-  def category_link(base_path, new_category, other_params)
-    url_params = { category: new_category }.merge(other_params)
+  def category_link(base_path, new_category)
+    url_params = { category: new_category }
     url = "#{base_path}?#{url_params.to_query}"
     "<a href='#{url}'>#{new_category}</a> <br>".html_safe
   end
 
-  def cat # do naprawienia
+  def cat
+    # do naprawienia
+    @string = ''
     tab = []
-    @products.each do |p|
-      tab += [p.category] unless tab.include?(p.category)
+    Product.all.each do |p|
+      next if tab.include?(p.category)
+
+      tab += [p.category]
+      url = "#{products_path}?#{{ category: p.category }.to_query}"
+      @string += "<a href='#{url}'>#{p.category}</a> <br>".html_safe
     end
-    tab.each do |elem|
-      category_link(products_path, elem, {})
-    end
+    @string.html_safe
   end
 end
