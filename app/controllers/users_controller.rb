@@ -10,7 +10,6 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     add_breadcrumb @user.display_name.to_s, :user_path
-    
   end
 
   def update
