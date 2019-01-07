@@ -29,7 +29,9 @@ br
 h1 Produkty:
 
 br
-
+h6 Sorotwanie według:
+p= sorting_link(products_path, 'created_at asc', {key: params[:key]})
+p= sorting_link(products_path, 'created_at desc', {key: params[:key]})
 
 h6 Kategorie:
 p= cat(products_path, {key: params[:key]} )
