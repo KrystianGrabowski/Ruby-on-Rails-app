@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :order do
-    owner_id { 1 }
-    owner_type { 'MyString' }
+    owner_id { Faker::Number }
+    owner_type { 'User' }
     status { '' }
   end
 end

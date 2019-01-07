@@ -6,7 +6,7 @@ class Order < ApplicationRecord
     str = '' if str == 'Rezerwacja: '
     str2 = '' if str2 == ' Brak na stanie: '
     if !((str == '') && (str2 == '')) then str.chomp(', ') + str2.chomp(', ')
-    else 'Nic nie wypożyczono (w koszyku mogły znajdować się tylko produkty, których nie było na stanie lub koszyk był pusty)'
+    else 'Nic nie wypożyczono (koszyk był pusty)'
     end
   end
 
