@@ -5,7 +5,7 @@ p
   = @product.name
   br
   - if @product.picture.attached?
-     = image_tag @product.picture.variant(resize: "1000x200")
+     = image_tag @product.picture.variant(resize: "200x200")
 p
   strong Cena:
   br
@@ -49,7 +49,9 @@ ul
       = comment.content
       = " (#{comment.created_at})  "
       - if comment.user.present?
-         =  link_to "(#{comment.user.display_name}) ",  user_path(comment.user.id)
+        - if comment.user.picture.attached?
+          = image_tag comment.user.picture.variant(resize: "30x30")
+        =  link_to "(#{comment.user.display_name}) ",  user_path(comment.user.id)
       = link_to "Report", report_comment_path(comment)
       - if admin_user_signed_in?
         = link_to "Delete",[comment], method: :delete, data: {confirm: "Are you sure?"}, class: 'label alert'

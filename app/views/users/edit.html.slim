@@ -1,0 +1,17 @@
+br
+h1 Edit profile
+br
+= form_for @user do |f|
+  - if @user.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+      ul
+        - @user.errors.full_messages.each do |message|
+          li = message
+  .field
+    = f.file_field :picture
+    - if @user.picture.attached?
+       = f.label :remove_picture
+       = f.check_box :remove_picture
+  br
+  .actions = f.submit
