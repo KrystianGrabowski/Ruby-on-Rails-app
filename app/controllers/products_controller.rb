@@ -17,6 +17,7 @@ class ProductsController < InheritedResources::Base
 
   def index_rubcop_help
     @products = @products.where(category: params[:category]) unless params[:category].nil? # umyślnie wszystko
+    @products_all = @products
     @products = @products.page(params[:page]).per(5)
     @view_model = HomePageViewModel.new
   end
@@ -56,15 +57,16 @@ class ProductsController < InheritedResources::Base
     "<a href='#{url}'>#{new_category}</a> <br>".html_safe
   end
 
-  def cat
-    # do naprawienia
-    @string = ''
+  def cat(_path, other_params)
+    @string = '' # + path.to_s + '<br>' + other_params.to_s + '<br>'
     tab = []
-    Product.all.each do |p|
+    # Product.all.each do |p| #Uwzględnia wszystkie kategorie, nie tylko te wyszukane
+    @products_all.each do |p| # Uwzględnia tylko te wyszukane
       next if tab.include?(p.category)
 
       tab += [p.category]
-      url = "#{products_path}?#{{ category: p.category }.to_query}"
+      url_params = { category: p.category }.merge(other_params)
+      url = "#{products_path}?#{url_params.to_query}"
       @string += "<a href='#{url}'>#{p.category}</a> <br>".html_safe
     end
     @string.html_safe

@@ -29,8 +29,10 @@ br
 h1 Produkty:
 
 br
-h6 Wszystkie kategorie (chwilowo nie działa z wyszukiwaniem):
-p= cat
+
+
+h6 Kategorie:
+p= cat(products_path, {key: params[:key]} )
 
 br
 table.table
