@@ -1,12 +1,18 @@
+style
+  |  h1 {display: inline-block;}
+
 br
 - if @user.picture.attached?
   = image_tag @user.picture.variant(resize: "200x200")
 h1 = @user.email
 
 br
+br
 ul
-  li
-    = link_to('Edit profile', edit_user_path)
+  -if user_signed_in?
+    -if current_user.id.to_s == params[:id]
+      li
+        = link_to('Edit profile', edit_user_path)
 
 br
 h3 User comments

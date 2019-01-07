@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_admin_user!, except: %i[show]
+  before_action :authenticate_admin_user!, except: %i[show edit]
   add_breadcrumb 'Users', :users_path
   def show
     @user = User.find(params[:id])
@@ -15,6 +15,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
+    redirect_to user_path
+    flash[:notice] = 'Edytowano profil!'
   end
 
   def user_params
