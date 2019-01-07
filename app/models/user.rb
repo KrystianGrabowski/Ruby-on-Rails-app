@@ -8,15 +8,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   attr_accessor :remove_picture
   after_save :purge_picture, if: :remove_picture
-  
+
   def display_name
     email if email.present?
   end
+
   private
-       
+
   def purge_picture
     picture.purge_later
   end
-
-
 end
