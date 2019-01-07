@@ -14,6 +14,7 @@ class BookingsController < ApplicationController
   end
 
   def index
+    add_breadcrumb 'Bookings', :bookings_path
     @bookings = Booking.all
   end
 
@@ -33,6 +34,7 @@ class BookingsController < ApplicationController
   end
 
   def user_bookings
+    add_breadcrumb 'Bookings', :bookings_user_bookings_path
     @current_name = current_user.email
     @bookings = current_user.bookings
   end

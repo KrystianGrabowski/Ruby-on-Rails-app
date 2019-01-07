@@ -7,7 +7,7 @@ ActiveAdmin.register_page 'Dashboard' do
         ul do
           li link_to('Add product', new_product_path)
           li link_to('All products', products_path)
-          li link_to('All users', users_index_path)
+          li link_to('All users', users_path)
           li link_to('Reported comments', comments_reported_path)
           li link_to('Bookings', bookings_path)
         end

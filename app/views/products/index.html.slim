@@ -26,7 +26,12 @@ br
           a href=product_path(product) = product.name
 br
 
-h1 Wszystkie nasze produkty:
+h1 Produkty:
+
+br
+h6 Wszystkie kategorie (chwilowo nie działa z wyszukiwaniem):
+p= cat
+
 br
 table.table
   thead
@@ -55,6 +60,8 @@ table.table
           td = link_to 'Edit', edit_product_path(product)
         - if admin_user_signed_in?
           td = link_to 'Destroy', product, data: { confirm: 'Are you sure?' }, method: :delete
+= paginate @products
+
 
 br
   - if admin_user_signed_in?

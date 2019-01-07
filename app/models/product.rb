@@ -1,5 +1,10 @@
 class Product < ApplicationRecord
   include ActionView::Helpers::NumberHelper
+  include PgSearch
+  pg_search_scope :search, against: :name,
+                           using: {
+                             tsearch: { prefix: true, dictionary: 'english' }
+                           }
   validates :name, :price, :category, :amount, presence: true
   validates :name, uniqueness: true
   validates :amount, :price, numericality: { greater_than_or_equal_to: 0 }
