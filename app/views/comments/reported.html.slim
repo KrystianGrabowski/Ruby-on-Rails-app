@@ -20,6 +20,8 @@ table.table-bordered
       tr
         td = comment.content
         - if comment.user.present?
+          - if comment.user.picture.attached?
+            = image_tag comment.user.picture.variant(resize: "30x30")
           td =  comment.user.display_name
         - else
           td
