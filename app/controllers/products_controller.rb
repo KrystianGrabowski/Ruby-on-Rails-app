@@ -25,6 +25,7 @@ class ProductsController < InheritedResources::Base
   def index
     @products = ProductsProvider.new(params[:key]).results
     index_rubcop_help
+    sort
   end
 
   def show
@@ -51,10 +52,12 @@ class ProductsController < InheritedResources::Base
     redirect_to products_path
   end
 
-  def category_link(base_path, new_category)
-    url_params = { category: new_category }
-    url = "#{base_path}?#{url_params.to_query}"
-    "<a href='#{url}'>#{new_category}</a> <br>".html_safe
+  def sorting
+    params[:sort_by]
+  end
+
+  def sort
+    @products = @products.reorder(sorting) if sorting.in? ['created_at desc', 'created_at asc']
   end
 
   def cat(_path, other_params)
