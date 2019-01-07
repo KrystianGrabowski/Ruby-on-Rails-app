@@ -7,6 +7,20 @@ class UsersController < ApplicationController
     @comments = @user.comments.sort.group_by(&:product)
   end
 
+  def edit
+    @user = User.find(params[:id])
+    add_breadcrumb @user.display_name.to_s, :user_path
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
+  end
+
+  def user_params
+    params.require(:user).permit!
+  end
+
   def index
     @users = User.all
   end

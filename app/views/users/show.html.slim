@@ -1,8 +1,14 @@
 br
+- if @user.picture.attached?
+  = image_tag @user.picture.variant(resize: "200x200")
 h1 = @user.email
 
+br
+ul
+  li
+    = link_to('Edit profile', edit_user_path)
 
-
+br
 h3 User comments
 ul
   - @comments.each_key do |prod|
