@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_admin_user!, except: %i[show edit]
+  before_action :authenticate_admin_user!, except: %i[show edit update user_params]
   add_breadcrumb 'Users', :users_path
   def show
     @user = User.find(params[:id])
