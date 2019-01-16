@@ -1,2 +1,19 @@
-h1 Notifications#index
-p ERROR 404
+br
+h3 Lista obserwowanych #{@current_name},
+
+h3 oto lista produktów które obserwujesz:
+br
+table.table
+  thead
+    tr
+      th Produkt
+      th Cena
+      th Usuń
+
+
+  tbody
+    - @notifications.each do |notification|
+      tr
+        td = Product.find(notification.product_id).name
+        td = notification.former_price
+        td = link_to 'Destroy', notification, data: { confirm: 'Are you sure?' }, method: :delete

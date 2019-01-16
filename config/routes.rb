@@ -51,5 +51,10 @@ Rails.application.routes.draw do
     get 'users/email_correct', to: 'users#email_correct'
     resources :courses, only: [:index]
   end
+  resources :notifications do
+    member do
+      get :add_to_watch_list
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
