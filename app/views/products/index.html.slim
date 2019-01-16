@@ -59,7 +59,7 @@ table.table
     - @products.each do |product|
       tr
         td = if product.picture.attached? then image_tag product.picture.variant(combine_options:{resize: '100x100^', crop: '100x100+0+0'})
-        td = product.name
+        td = link_to product.name, product
         td = number_to_currency(product.price,locale: :pl)<<' PLN'
         td = product.description
         td = product.category
