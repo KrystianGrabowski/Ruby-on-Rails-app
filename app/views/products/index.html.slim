@@ -43,6 +43,7 @@ br
 table.table
   thead
     tr 
+      th Obraz
       th Nazwa
       th Cena
       th Opis
@@ -57,6 +58,7 @@ table.table
   tbody
     - @products.each do |product|
       tr
+        td = if product.picture.attached? then image_tag product.picture.variant(combine_options:{resize: '100x100^', crop: '100x100+0+0'})
         td = product.name
         td = number_to_currency(product.price,locale: :pl)<<' PLN'
         td = product.description
