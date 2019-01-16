@@ -54,6 +54,7 @@ Rails.application.routes.draw do
   resources :notifications do
     member do
       get :add_to_watch_list
+      get :track_changes
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
