@@ -1,10 +1,13 @@
 style
   |  h1 {display: inline-block;}
 
-br
-- if @user.picture.attached?
-  = image_tag @user.picture.variant(resize: "200x200")
-h1 = @user.email
+.row
+  .col 
+    h1 = @user.email
+  .col 
+    - if @user.picture.attached?
+      = image_tag @user.picture.variant(resize: "200x200")
+
 
 br
 br

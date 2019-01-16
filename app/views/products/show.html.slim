@@ -1,34 +1,37 @@
 p#notice 
-p
-  strong Nazwa:
-  br
-  = @product.name
-  br
-  - if @product.picture.attached?
-     = image_tag @product.picture.variant(resize: "200x200")
-p
-  strong Cena:
-  br
-  = number_to_currency(@product.price,locale: :pl)<<' PLN'
-p
-  strong Opis:
-  br
-  = @product.description
-p
-  strong Kategoria:
-  br
-  = @product.category
-p
-  strong Ilość dostępnych sztuk:
-  br
-  = @product.amount
 
-br
-- if admin_user_signed_in?
-  => link_to 'Edit', edit_product_path(@product)
-  '|
-=< link_to 'Back', products_path
+.row
+  .col
+    p
+      strong Nazwa:
+      br
+      = @product.name
 
+    p
+      strong Cena:
+      br
+      = number_to_currency(@product.price,locale: :pl)<<' PLN'
+    p
+      strong Opis:
+      br
+      = @product.description
+    p
+      strong Kategoria:
+      br
+      = @product.category
+    p
+      strong Ilość dostępnych sztuk:
+      br
+      = @product.amount
+
+    br
+    - if admin_user_signed_in?
+      => link_to 'Edit', edit_product_path(@product)
+      '|
+    =< link_to 'Back', products_path
+  .col
+    - if @product.picture.attached?
+      = image_tag @product.picture.variant(resize: "300x300")    
 
 
 br
