@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'notifications/index'
   get 'users/index'
   get 'bookings/user_bookings'
   get 'comments/reported'
