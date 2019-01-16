@@ -24,15 +24,14 @@ p
   = @product.amount
 
 br
-=> link_to 'Edit', edit_product_path(@product)
-'|
+- if admin_user_signed_in?
+  => link_to 'Edit', edit_product_path(@product)
+  '|
 =< link_to 'Back', products_path
 
-= form_for @bookings do |f|
-  = f.hidden_field :product_id
-  p= f.submit
 
 
+br
 = link_to 'Dodaj do koszyka', add_to_cart_product_path(@product) 
 
 hr
@@ -60,9 +59,5 @@ ul
 = form_for @comments do |f|
   = f.hidden_field :product_id
   p= f.text_area :content, rows: 7, cols: 70
-  p= f.submit
-
-= form_for @bookings do |f|
-  = f.hidden_field :product_id
   p= f.submit
 
