@@ -17,6 +17,7 @@ class ProductsController < InheritedResources::Base
 
   def index_rubcop_help
     @products = @products.where(category: params[:category]) unless params[:category].nil? # umyślnie wszystko
+    @products_all = @products
     @products = @products.page(params[:page]).per(5)
     @view_model = HomePageViewModel.new
   end
@@ -24,6 +25,7 @@ class ProductsController < InheritedResources::Base
   def index
     @products = ProductsProvider.new(params[:key]).results
     index_rubcop_help
+    sort
   end
 
   def show
@@ -50,21 +52,24 @@ class ProductsController < InheritedResources::Base
     redirect_to products_path
   end
 
-  def category_link(base_path, new_category)
-    url_params = { category: new_category }
-    url = "#{base_path}?#{url_params.to_query}"
-    "<a href='#{url}'>#{new_category}</a> <br>".html_safe
+  def sorting
+    params[:sort_by]
   end
 
-  def cat
-    # do naprawienia
-    @string = ''
+  def sort
+    @products = @products.reorder(sorting) if sorting.in? ['created_at desc', 'created_at asc']
+  end
+
+  def cat(_path, other_params)
+    @string = '' # + path.to_s + '<br>' + other_params.to_s + '<br>'
     tab = []
-    Product.all.each do |p|
+    # Product.all.each do |p| #Uwzględnia wszystkie kategorie, nie tylko te wyszukane
+    @products_all.each do |p| # Uwzględnia tylko te wyszukane
       next if tab.include?(p.category)
 
       tab += [p.category]
-      url = "#{products_path}?#{{ category: p.category }.to_query}"
+      url_params = { category: p.category }.merge(other_params)
+      url = "#{products_path}?#{url_params.to_query}"
       @string += "<a href='#{url}'>#{p.category}</a> <br>".html_safe
     end
     @string.html_safe

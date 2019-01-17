@@ -28,14 +28,22 @@ br
 
 h1 Produkty:
 
-br
-h6 Wszystkie kategorie (chwilowo nie działa z wyszukiwaniem):
-p= cat
+.row
+  .col 
+    h6 Kategorie:
+    p= cat(products_path, {key: params[:key]} )
+  .col 
+    h6 Sortwanie według:
+    p= sorting_link(products_path, 'created_at asc', 'czas dodania (rosnąco)', {key: params[:key]})
+    p= sorting_link(products_path, 'created_at desc', 'czas dodania (malejąco)', {key: params[:key]})
+
+
 
 br
 table.table
   thead
     tr 
+      th Obraz
       th Nazwa
       th Cena
       th Opis
@@ -50,7 +58,8 @@ table.table
   tbody
     - @products.each do |product|
       tr
-        td = product.name
+        td = if product.picture.attached? then image_tag product.picture.variant(combine_options:{resize: '100x100^', crop: '100x100+0+0'})
+        td = link_to product.name, product
         td = number_to_currency(product.price,locale: :pl)<<' PLN'
         td = product.description
         td = product.category

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'notifications/index'
   get 'users/index'
   get 'bookings/user_bookings'
   get 'comments/reported'
@@ -49,6 +50,12 @@ Rails.application.routes.draw do
     get 'users/email_exists', to: 'users#email_exists'
     get 'users/email_correct', to: 'users#email_correct'
     resources :courses, only: [:index]
+  end
+  resources :notifications do
+    member do
+      get :add_to_watch_list
+      get :track_changes
+    end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
