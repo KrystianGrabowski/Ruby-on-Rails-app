@@ -86,6 +86,8 @@
 
   <section class="description">
     
+<p>Klasa umożliwiająca dodanie produktu do koszyka.</p>
+
   </section>
 
   
@@ -118,13 +120,16 @@
 
         <div class="method-description">
           
-          
+          <dl class="rdoc-list note-list"><dt>Dodaje <code>product</code>
+<dd>
+<p>do koszyka <code>guest</code>::.</p>
+</dd></dl>
           
           
 
           
           <div class="method-source-code" id="execute-source">
-            <pre><span class="ruby-comment"># File app/interactions/add_to_cart.rb, line 5</span>
+            <pre><span class="ruby-comment"># File app/interactions/add_to_cart.rb, line 10</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">execute</span>
   <span class="ruby-identifier">guest</span>.<span class="ruby-identifier">cart</span>.<span class="ruby-identifier">order_items</span>.<span class="ruby-identifier">create</span> <span class="ruby-value">product:</span> <span class="ruby-identifier">product</span>
 <span class="ruby-keyword">end</span></pre>

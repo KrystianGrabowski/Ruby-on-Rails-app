@@ -88,6 +88,8 @@
 
   <section class="description">
     
+<p>Provider/dostawca produktów</p>
+
   </section>
 
   
@@ -141,13 +143,13 @@
 
         <div class="method-description">
           
-          
+          <p>Inicializacja względem klucza</p>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/providers/products_provider.rb, line 4</span>
+            <pre><span class="ruby-comment"># File app/providers/products_provider.rb, line 6</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">key</span>)
   <span class="ruby-ivar">@results</span> = <span class="ruby-constant">Product</span>.<span class="ruby-identifier">all</span>
   <span class="ruby-identifier">filter_by_key</span>(<span class="ruby-identifier">key</span>)
@@ -183,13 +185,13 @@
 
         <div class="method-description">
           
-          
+          <p>Filtrowanie produktów względem klucza (wyszukiwania)</p>
           
           
 
           
           <div class="method-source-code" id="filter_by_key-source">
-            <pre><span class="ruby-comment"># File app/providers/products_provider.rb, line 9</span>
+            <pre><span class="ruby-comment"># File app/providers/products_provider.rb, line 12</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">filter_by_key</span>(<span class="ruby-identifier">key</span>)
   <span class="ruby-ivar">@results</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> (<span class="ruby-identifier">key</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;&#39;</span>)
                <span class="ruby-ivar">@results</span>

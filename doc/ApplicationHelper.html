@@ -79,6 +79,8 @@
 
   <section class="description">
     
+<p>Helper aplikacji</p>
+
   </section>
 
   
@@ -111,13 +113,13 @@
 
         <div class="method-description">
           
-          
+          <p>Utworzenie pomocniczego linku sortującego (parametr w url)</p>
           
           
 
           
           <div class="method-source-code" id="sorting_link-source">
-            <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 2</span>
+            <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 4</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sorting_link</span>(<span class="ruby-identifier">base_path</span>, <span class="ruby-identifier">direction</span>, <span class="ruby-identifier">direction_name</span>, <span class="ruby-identifier">other_params</span>)
   <span class="ruby-identifier">url_params</span> = { <span class="ruby-value">sort_by:</span> <span class="ruby-identifier">direction</span> }.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">other_params</span>)
   <span class="ruby-identifier">url</span> = <span class="ruby-node">&quot;#{base_path}?#{url_params.to_query}&quot;</span>

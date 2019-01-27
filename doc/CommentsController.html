@@ -94,6 +94,8 @@
 
   <section class="description">
     
+<p>Kontroler odpowiedzialny za komentarze pod produktami</p>
+
   </section>
 
   
@@ -126,13 +128,14 @@
 
         <div class="method-description">
           
-          
+          <p>Utworzenie komentarza (automatycznie przypisuje akutalnie zalogowanego
+użytkownika do komentarza)</p>
           
           
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/comments_controller.rb, line 3</span>
+            <pre><span class="ruby-comment"># File app/controllers/comments_controller.rb, line 7</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
   <span class="ruby-ivar">@comment</span> = <span class="ruby-constant">Comment</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>.<span class="ruby-identifier">require</span>(<span class="ruby-value">:comment</span>).<span class="ruby-identifier">permit</span>(<span class="ruby-value">:content</span>, <span class="ruby-value">:product_id</span>).<span class="ruby-identifier">merge</span>(<span class="ruby-value">user:</span> <span class="ruby-identifier">current_user</span>))
   <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-keyword">if</span> <span class="ruby-ivar">@comment</span>.<span class="ruby-identifier">save</span>
@@ -165,13 +168,13 @@
 
         <div class="method-description">
           
-          
+          <p>Usunięcie komentarza przez admina</p>
           
           
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/comments_controller.rb, line 13</span>
+            <pre><span class="ruby-comment"># File app/controllers/comments_controller.rb, line 18</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy</span>
   <span class="ruby-ivar">@comment</span> = <span class="ruby-constant">Comment</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-ivar">@comment</span>.<span class="ruby-identifier">destroy</span>
@@ -201,13 +204,14 @@
 
         <div class="method-description">
           
-          
+          <p>Oznaczenie komentarza jako zareportowanego - do późniejszej moderacji przed
+admina strony</p>
           
           
 
           
           <div class="method-source-code" id="report-source">
-            <pre><span class="ruby-comment"># File app/controllers/comments_controller.rb, line 20</span>
+            <pre><span class="ruby-comment"># File app/controllers/comments_controller.rb, line 26</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">report</span>
   <span class="ruby-ivar">@comment</span> = <span class="ruby-constant">Comment</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-ivar">@comment</span>.<span class="ruby-identifier">update</span> <span class="ruby-value">review_request:</span> <span class="ruby-keyword">true</span>
@@ -237,13 +241,13 @@
 
         <div class="method-description">
           
-          
+          <p>Dostęp do wszystkich oznaczonych komentarzy</p>
           
           
 
           
           <div class="method-source-code" id="reported-source">
-            <pre><span class="ruby-comment"># File app/controllers/comments_controller.rb, line 34</span>
+            <pre><span class="ruby-comment"># File app/controllers/comments_controller.rb, line 42</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">reported</span>
   <span class="ruby-ivar">@reported_comments</span> = <span class="ruby-constant">Comment</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">review_request:</span> <span class="ruby-keyword">true</span>)
   <span class="ruby-identifier">add_breadcrumb</span> <span class="ruby-string">&#39;Reported comments&#39;</span>, <span class="ruby-identifier">comments_reported_path</span>
@@ -271,13 +275,13 @@
 
         <div class="method-description">
           
-          
+          <p>Usunięcie oznaczenia komentarza jako zareportowanego</p>
           
           
 
           
           <div class="method-source-code" id="undo_report-source">
-            <pre><span class="ruby-comment"># File app/controllers/comments_controller.rb, line 27</span>
+            <pre><span class="ruby-comment"># File app/controllers/comments_controller.rb, line 34</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">undo_report</span>
   <span class="ruby-ivar">@comment</span> = <span class="ruby-constant">Comment</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-ivar">@comment</span>.<span class="ruby-identifier">update</span> <span class="ruby-value">review_request:</span> <span class="ruby-keyword">false</span>

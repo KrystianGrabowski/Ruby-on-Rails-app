@@ -88,6 +88,8 @@
 
   <section class="description">
     
+<p>Kontroler odpowiedzialny za koszyk.</p>
+
   </section>
 
   
@@ -120,13 +122,14 @@
 
         <div class="method-description">
           
-          
+          <p>Finalizuje zamowienie. Wyświetla notkę informacyjną oraz przenosi do
+produków.</p>
           
           
 
           
           <div class="method-source-code" id="finalize-source">
-            <pre><span class="ruby-comment"># File app/controllers/carts_controller.rb, line 10</span>
+            <pre><span class="ruby-comment"># File app/controllers/carts_controller.rb, line 12</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">finalize</span>
   <span class="ruby-identifier">s</span> = <span class="ruby-identifier">current_guest</span>.<span class="ruby-identifier">cart</span>.<span class="ruby-identifier">cart_check</span>
   <span class="ruby-identifier">current_guest</span>.<span class="ruby-identifier">cart</span>.<span class="ruby-identifier">order_items</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span>
@@ -159,13 +162,13 @@
 
         <div class="method-description">
           
-          
+          <p>Dodaje okruchy i przesyła dane do widoku</p>
           
           
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/carts_controller.rb, line 4</span>
+            <pre><span class="ruby-comment"># File app/controllers/carts_controller.rb, line 5</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
   <span class="ruby-identifier">add_breadcrumb</span> <span class="ruby-string">&#39;Cart&#39;</span>, <span class="ruby-value">:carts_path</span>
   <span class="ruby-ivar">@cart</span> = <span class="ruby-identifier">current_guest</span>.<span class="ruby-identifier">cart</span>

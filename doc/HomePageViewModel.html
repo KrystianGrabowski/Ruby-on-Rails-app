@@ -90,6 +90,9 @@
 
   <section class="description">
     
+<p>ViedModel produktów umożliwiający pokazanie wybranych produktów jako
+wyróżnione</p>
+
   </section>
 
   
@@ -122,13 +125,13 @@
 
         <div class="method-description">
           
-          
+          <p>Promowany (bo najnowszy) produkt</p>
           
           
 
           
           <div class="method-source-code" id="featured_product-source">
-            <pre><span class="ruby-comment"># File app/view_models/home_page_view_model.rb, line 2</span>
+            <pre><span class="ruby-comment"># File app/view_models/home_page_view_model.rb, line 4</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">featured_product</span>
   <span class="ruby-constant">Product</span>.<span class="ruby-identifier">last</span>
 <span class="ruby-keyword">end</span></pre>
@@ -155,13 +158,13 @@
 
         <div class="method-description">
           
-          
+          <p>3 najnowsze produkty (poza promowanym)</p>
           
           
 
           
           <div class="method-source-code" id="new_products-source">
-            <pre><span class="ruby-comment"># File app/view_models/home_page_view_model.rb, line 6</span>
+            <pre><span class="ruby-comment"># File app/view_models/home_page_view_model.rb, line 9</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">new_products</span>
   <span class="ruby-identifier">featured_product</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> [] <span class="ruby-operator">:</span> <span class="ruby-constant">Product</span>.<span class="ruby-identifier">where</span>.<span class="ruby-identifier">not</span>(<span class="ruby-value">id:</span> <span class="ruby-identifier">featured_product</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">order</span>(<span class="ruby-string">&#39;created_at desc&#39;</span>).<span class="ruby-identifier">first</span>(<span class="ruby-value">3</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -188,13 +191,13 @@
 
         <div class="method-description">
           
-          
+          <p>3 najbardziej popularne produkty (względem ilości komentarzy)</p>
           
           
 
           
           <div class="method-source-code" id="popular_products-source">
-            <pre><span class="ruby-comment"># File app/view_models/home_page_view_model.rb, line 10</span>
+            <pre><span class="ruby-comment"># File app/view_models/home_page_view_model.rb, line 14</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">popular_products</span>
   <span class="ruby-constant">Product</span>.<span class="ruby-identifier">left_joins</span>(<span class="ruby-value">:comments</span>).<span class="ruby-identifier">group</span>(<span class="ruby-value">:product_id</span>, <span class="ruby-value">:id</span>).<span class="ruby-identifier">order</span>(<span class="ruby-string">&#39;count(product_id) desc, created_at desc&#39;</span>).<span class="ruby-identifier">limit</span>(<span class="ruby-value">3</span>)
 <span class="ruby-keyword">end</span></pre>

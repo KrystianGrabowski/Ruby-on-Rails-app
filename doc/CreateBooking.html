@@ -96,6 +96,8 @@
 
   <section class="description">
     
+<p>Klasa umożliwiająca utowrzenie rezerwacji.</p>
+
   </section>
 
   
@@ -128,13 +130,13 @@
 
         <div class="method-description">
           
-          
+          <p>Aktualizuje ilość dostępnych produktów typu <code>product</code>::.</p>
           
           
 
           
           <div class="method-source-code" id="amount_update-source">
-            <pre><span class="ruby-comment"># File app/interactions/create_booking.rb, line 35</span>
+            <pre><span class="ruby-comment"># File app/interactions/create_booking.rb, line 45</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">amount_update</span>
   <span class="ruby-ivar">@product</span>.<span class="ruby-identifier">update</span>(<span class="ruby-value">amount:</span> <span class="ruby-ivar">@product</span>.<span class="ruby-identifier">amount</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -161,13 +163,13 @@
 
         <div class="method-description">
           
-          
+          <p>Tworzy nowy obiekt klasy <a href="Booking.html">Booking</a>.</p>
           
           
 
           
           <div class="method-source-code" id="create_obj-source">
-            <pre><span class="ruby-comment"># File app/interactions/create_booking.rb, line 17</span>
+            <pre><span class="ruby-comment"># File app/interactions/create_booking.rb, line 23</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create_obj</span>
   <span class="ruby-ivar">@booking</span> = <span class="ruby-constant">Booking</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">product:</span> <span class="ruby-identifier">product</span>)
   <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-ivar">@booking</span>.<span class="ruby-identifier">errors</span>) <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@booking</span>.<span class="ruby-identifier">save</span>
@@ -195,13 +197,13 @@
 
         <div class="method-description">
           
-          
+          <p>Przypisuje datę wypożyczenia oraz datę zwrotu.</p>
           
           
 
           
           <div class="method-source-code" id="date_update-source">
-            <pre><span class="ruby-comment"># File app/interactions/create_booking.rb, line 22</span>
+            <pre><span class="ruby-comment"># File app/interactions/create_booking.rb, line 29</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">date_update</span>
   <span class="ruby-ivar">@booking</span>.<span class="ruby-identifier">update</span> <span class="ruby-value">start_date:</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>, <span class="ruby-value">end_date:</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">+</span> <span class="ruby-value">10</span>.<span class="ruby-identifier">days</span>
 <span class="ruby-keyword">end</span></pre>
@@ -228,13 +230,13 @@
 
         <div class="method-description">
           
-          
+          <p>Tworzy rezerwację.</p>
           
           
 
           
           <div class="method-source-code" id="execute-source">
-            <pre><span class="ruby-comment"># File app/interactions/create_booking.rb, line 5</span>
+            <pre><span class="ruby-comment"># File app/interactions/create_booking.rb, line 10</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">execute</span>
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@product</span>.<span class="ruby-identifier">amount</span>.<span class="ruby-identifier">positive?</span>
     <span class="ruby-identifier">create_obj</span>
@@ -269,13 +271,13 @@
 
         <div class="method-description">
           
-          
+          <p>Przypisuje nazwę wypożyczonego produktu.</p>
           
           
 
           
           <div class="method-source-code" id="name_update-source">
-            <pre><span class="ruby-comment"># File app/interactions/create_booking.rb, line 31</span>
+            <pre><span class="ruby-comment"># File app/interactions/create_booking.rb, line 40</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">name_update</span>
   <span class="ruby-ivar">@booking</span>.<span class="ruby-identifier">update</span> <span class="ruby-value">product_name:</span> <span class="ruby-identifier">product</span>.<span class="ruby-identifier">name</span>
 <span class="ruby-keyword">end</span></pre>
@@ -302,13 +304,13 @@
 
         <div class="method-description">
           
-          
+          <p>Przypisuje właściciela rezerwacji.</p>
           
           
 
           
           <div class="method-source-code" id="owner_update-source">
-            <pre><span class="ruby-comment"># File app/interactions/create_booking.rb, line 26</span>
+            <pre><span class="ruby-comment"># File app/interactions/create_booking.rb, line 34</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">owner_update</span>
   <span class="ruby-ivar">@booking</span>.<span class="ruby-identifier">user_name</span> = <span class="ruby-operator">!</span><span class="ruby-identifier">user</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;gość&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">email</span>
   <span class="ruby-ivar">@booking</span>.<span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">user</span>

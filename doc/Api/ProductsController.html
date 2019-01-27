@@ -118,13 +118,13 @@
 
         <div class="method-description">
           
-          
+          <p>Provider do produktów (wyszukiwanych)</p>
           
           
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/api/products_controller.rb, line 3</span>
+            <pre><span class="ruby-comment"># File app/controllers/api/products_controller.rb, line 5</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
   <span class="ruby-identifier">provider</span> = <span class="ruby-constant">ProductsProvider</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:key</span>])
   <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-identifier">provider</span>.<span class="ruby-identifier">results</span>

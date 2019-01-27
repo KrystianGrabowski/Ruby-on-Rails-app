@@ -88,6 +88,8 @@
 
   <section class="description">
     
+<p>Kontroler odpowiedzialny za zamówienia produktów użytkownika</p>
+
   </section>
 
   
@@ -120,13 +122,13 @@
 
         <div class="method-description">
           
-          
+          <p>Listowanie zamówień użytkownika aktualnie zalogowanego</p>
           
           
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/orders_controller.rb, line 4</span>
+            <pre><span class="ruby-comment"># File app/controllers/orders_controller.rb, line 6</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
   <span class="ruby-ivar">@orders</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">orders</span>
 <span class="ruby-keyword">end</span></pre>
@@ -153,13 +155,13 @@
 
         <div class="method-description">
           
-          
+          <p>Szczegóły zamówienia</p>
           
           
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/orders_controller.rb, line 8</span>
+            <pre><span class="ruby-comment"># File app/controllers/orders_controller.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>
   <span class="ruby-ivar">@order</span> = <span class="ruby-identifier">attach_order</span>
 <span class="ruby-keyword">end</span></pre>

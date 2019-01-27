@@ -104,6 +104,8 @@
 
   <section class="description">
     
+<p>Kontroler odpowiedzialny za produkty i akcje z nimi związanymi</p>
+
   </section>
 
   
@@ -136,13 +138,13 @@
 
         <div class="method-description">
           
-          
+          <p>Metoda umożliwiająca dodanie produktu do koszyka</p>
           
           
 
           
           <div class="method-source-code" id="add_to_cart-source">
-            <pre><span class="ruby-comment"># File app/controllers/products_controller.rb, line 42</span>
+            <pre><span class="ruby-comment"># File app/controllers/products_controller.rb, line 55</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_to_cart</span>
   <span class="ruby-identifier">product</span> = <span class="ruby-constant">Product</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-identifier">outcome</span> = <span class="ruby-constant">AddToCart</span>.<span class="ruby-identifier">run</span>(<span class="ruby-value">guest:</span> <span class="ruby-identifier">current_guest</span>, <span class="ruby-value">product:</span> <span class="ruby-identifier">product</span>)
@@ -178,13 +180,13 @@
 
         <div class="method-description">
           
-          
+          <p>Metoda tworząca odnośniki do sortowania względem wszystkich kategorii</p>
           
           
 
           
           <div class="method-source-code" id="cat-source">
-            <pre><span class="ruby-comment"># File app/controllers/products_controller.rb, line 63</span>
+            <pre><span class="ruby-comment"># File app/controllers/products_controller.rb, line 79</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cat</span>(<span class="ruby-identifier">_path</span>, <span class="ruby-identifier">other_params</span>)
   <span class="ruby-ivar">@string</span> = <span class="ruby-string">&#39;&#39;</span> <span class="ruby-comment"># + path.to_s + &#39;&lt;br&gt;&#39; + other_params.to_s + &#39;&lt;br&gt;&#39;</span>
   <span class="ruby-identifier">tab</span> = []
@@ -222,7 +224,7 @@
 
         <div class="method-description">
           
-          
+          <p>Edytowanie produktu</p>
           
           
             <div class="method-calls-super">
@@ -233,7 +235,7 @@
 
           
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/products_controller.rb, line 11</span>
+            <pre><span class="ruby-comment"># File app/controllers/products_controller.rb, line 19</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">edit</span>
   <span class="ruby-ivar">@product</span> = <span class="ruby-constant">Product</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-identifier">add_breadcrumb</span> <span class="ruby-ivar">@product</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">product_path</span>
@@ -263,13 +265,13 @@
 
         <div class="method-description">
           
-          
+          <p>Listowanie wszystkich produktów wraz z paginacją i sortowaniem</p>
           
           
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/products_controller.rb, line 25</span>
+            <pre><span class="ruby-comment"># File app/controllers/products_controller.rb, line 35</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
   <span class="ruby-ivar">@products</span> = <span class="ruby-constant">ProductsProvider</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:key</span>]).<span class="ruby-identifier">results</span>
   <span class="ruby-identifier">index_rubcop_help</span>
@@ -298,15 +300,15 @@
 
         <div class="method-description">
           
-          
+          <p>Funkcja pomocnicza do index (w celach obejścia rubocopa)</p>
           
           
 
           
           <div class="method-source-code" id="index_rubcop_help-source">
-            <pre><span class="ruby-comment"># File app/controllers/products_controller.rb, line 18</span>
+            <pre><span class="ruby-comment"># File app/controllers/products_controller.rb, line 27</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index_rubcop_help</span>
-  <span class="ruby-ivar">@products</span> = <span class="ruby-ivar">@products</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">category:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:category</span>]) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:category</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-comment"># umyślnie wszystko</span>
+  <span class="ruby-ivar">@products</span> = <span class="ruby-ivar">@products</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">category:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:category</span>]) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:category</span>].<span class="ruby-identifier">nil?</span>
   <span class="ruby-ivar">@products_all</span> = <span class="ruby-ivar">@products</span>
   <span class="ruby-ivar">@products</span> = <span class="ruby-ivar">@products</span>.<span class="ruby-identifier">page</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>]).<span class="ruby-identifier">per</span>(<span class="ruby-value">5</span>)
   <span class="ruby-ivar">@view_model</span> = <span class="ruby-constant">HomePageViewModel</span>.<span class="ruby-identifier">new</span>
@@ -334,7 +336,7 @@
 
         <div class="method-description">
           
-          
+          <p>Akcja utworzenia nowego produktu</p>
           
           
             <div class="method-calls-super">
@@ -345,7 +347,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/products_controller.rb, line 6</span>
+            <pre><span class="ruby-comment"># File app/controllers/products_controller.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">new</span>
   <span class="ruby-identifier">add_breadcrumb</span> <span class="ruby-string">&#39;New&#39;</span>, <span class="ruby-value">:new_product_path</span>
   <span class="ruby-keyword">super</span>
@@ -373,13 +375,13 @@
 
         <div class="method-description">
           
-          
+          <p>Funkcja pomocnicza - Zwraca parametry produktu</p>
           
           
 
           
           <div class="method-source-code" id="product_params-source">
-            <pre><span class="ruby-comment"># File app/controllers/products_controller.rb, line 38</span>
+            <pre><span class="ruby-comment"># File app/controllers/products_controller.rb, line 50</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">product_params</span>
   <span class="ruby-identifier">params</span>.<span class="ruby-identifier">require</span>(<span class="ruby-value">:product</span>).<span class="ruby-identifier">permit</span>(<span class="ruby-value">:name</span>, <span class="ruby-value">:remove_picture</span>, <span class="ruby-value">:picture</span>, <span class="ruby-value">:price</span>, <span class="ruby-value">:description</span>, <span class="ruby-value">:category</span>, <span class="ruby-value">:amount</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -406,13 +408,13 @@
 
         <div class="method-description">
           
-          
+          <p>Szczegóły danego produktu (wraz z komentarzami)</p>
           
           
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/products_controller.rb, line 31</span>
+            <pre><span class="ruby-comment"># File app/controllers/products_controller.rb, line 42</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>
   <span class="ruby-ivar">@product</span> = <span class="ruby-constant">Product</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-identifier">add_breadcrumb</span> <span class="ruby-ivar">@product</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">product_path</span>
@@ -442,13 +444,13 @@
 
         <div class="method-description">
           
-          
+          <p>Sortowanie produktu względem parametru w urlu</p>
           
           
 
           
           <div class="method-source-code" id="sort-source">
-            <pre><span class="ruby-comment"># File app/controllers/products_controller.rb, line 59</span>
+            <pre><span class="ruby-comment"># File app/controllers/products_controller.rb, line 74</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sort</span>
   <span class="ruby-ivar">@products</span> = <span class="ruby-ivar">@products</span>.<span class="ruby-identifier">reorder</span>(<span class="ruby-identifier">sorting</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">sorting</span>.<span class="ruby-identifier">in?</span> [<span class="ruby-string">&#39;created_at desc&#39;</span>, <span class="ruby-string">&#39;created_at asc&#39;</span>]
 <span class="ruby-keyword">end</span></pre>
@@ -475,13 +477,13 @@
 
         <div class="method-description">
           
-          
+          <p>Zwraca parametr do sortowania (z url)</p>
           
           
 
           
           <div class="method-source-code" id="sorting-source">
-            <pre><span class="ruby-comment"># File app/controllers/products_controller.rb, line 55</span>
+            <pre><span class="ruby-comment"># File app/controllers/products_controller.rb, line 69</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sorting</span>
   <span class="ruby-identifier">params</span>[<span class="ruby-value">:sort_by</span>]
 <span class="ruby-keyword">end</span></pre>

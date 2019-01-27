@@ -90,6 +90,8 @@
 
   <section class="description">
     
+<p>Klasa umożliwiająca utowrzenie rezerwacji.</p>
+
   </section>
 
   
@@ -122,13 +124,14 @@
 
         <div class="method-description">
           
-          
+          <p>Tworzy nowy obiekt klasy <a href="Notification.html">Notification</a>.
+Przypisuje mu obecną cenę przedmiotu <code>product</code>::.</p>
           
           
 
           
           <div class="method-source-code" id="create_obj-source">
-            <pre><span class="ruby-comment"># File app/interactions/create_notification.rb, line 10</span>
+            <pre><span class="ruby-comment"># File app/interactions/create_notification.rb, line 16</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create_obj</span>
   <span class="ruby-ivar">@notification</span> = <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">product_id:</span> <span class="ruby-identifier">product</span>.<span class="ruby-identifier">id</span>)
   <span class="ruby-ivar">@notification</span>.<span class="ruby-identifier">update</span> <span class="ruby-value">former_price:</span> <span class="ruby-identifier">product</span>.<span class="ruby-identifier">price</span>
@@ -157,13 +160,13 @@
 
         <div class="method-description">
           
-          
+          <p>Tworzy powiadomienie.</p>
           
           
 
           
           <div class="method-source-code" id="execute-source">
-            <pre><span class="ruby-comment"># File app/interactions/create_notification.rb, line 5</span>
+            <pre><span class="ruby-comment"># File app/interactions/create_notification.rb, line 10</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">execute</span>
   <span class="ruby-identifier">create_obj</span>
   <span class="ruby-identifier">owner_update</span>
@@ -191,13 +194,13 @@
 
         <div class="method-description">
           
-          
+          <p>Przypisuje powiadomieniu id użytkownika <code>user</code>::.</p>
           
           
 
           
           <div class="method-source-code" id="owner_update-source">
-            <pre><span class="ruby-comment"># File app/interactions/create_notification.rb, line 16</span>
+            <pre><span class="ruby-comment"># File app/interactions/create_notification.rb, line 23</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">owner_update</span>
   <span class="ruby-ivar">@notification</span>.<span class="ruby-identifier">update</span> <span class="ruby-value">user_id:</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span>
 <span class="ruby-keyword">end</span></pre>

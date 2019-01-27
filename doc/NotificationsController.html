@@ -94,6 +94,9 @@
 
   <section class="description">
     
+<p>Kontroler umożliwiający tworzenie oraz zarządzanie listą obserwowanych
+przedmiotów.</p>
+
   </section>
 
   
@@ -126,13 +129,14 @@
 
         <div class="method-description">
           
-          
+          <p>Sprawdza czy od momentu dodania do obserowanych do chwili obecnej cena
+uległa zmianie. @return bool</p>
           
           
 
           
           <div class="method-source-code" id="track_changes-source">
-            <pre><span class="ruby-comment"># File app/controllers/notifications_controller.rb, line 32</span>
+            <pre><span class="ruby-comment"># File app/controllers/notifications_controller.rb, line 41</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">track_changes</span>(<span class="ruby-identifier">user</span>)
   <span class="ruby-ivar">@notifications</span> = <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">user_id:</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span>)
   <span class="ruby-ivar">@notifications</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">nf</span><span class="ruby-operator">|</span>
@@ -172,13 +176,14 @@
 
         <div class="method-description">
           
-          
+          <p>Dodaje produkt o id przekazanym jako paramter do listy obserwowanych.
+Przekierowuje do listy wszystkich produktów.</p>
           
           
 
           
           <div class="method-source-code" id="add_to_watch_list-source">
-            <pre><span class="ruby-comment"># File app/controllers/notifications_controller.rb, line 11</span>
+            <pre><span class="ruby-comment"># File app/controllers/notifications_controller.rb, line 17</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_to_watch_list</span>
   <span class="ruby-identifier">product</span> = <span class="ruby-constant">Product</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>
@@ -215,13 +220,13 @@
 
         <div class="method-description">
           
-          
+          <p>Usuwa produkt o id przekazanym jako paramter z listy obserwowanych.</p>
           
           
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/notifications_controller.rb, line 25</span>
+            <pre><span class="ruby-comment"># File app/controllers/notifications_controller.rb, line 32</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy</span>
   <span class="ruby-ivar">@notification</span> = <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-ivar">@notification</span>.<span class="ruby-identifier">destroy</span>
@@ -251,13 +256,14 @@
 
         <div class="method-description">
           
-          
+          <p>Tworzy listę wszystkich powiadomień powiązanych z obecnie zalogowanym
+użytkownkiem.</p>
           
           
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/notifications_controller.rb, line 4</span>
+            <pre><span class="ruby-comment"># File app/controllers/notifications_controller.rb, line 8</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
   <span class="ruby-identifier">add_breadcrumb</span> <span class="ruby-string">&#39;Notifications&#39;</span>, <span class="ruby-value">:notifications_index_path</span>
   <span class="ruby-ivar">@current_name</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">email</span>
@@ -287,13 +293,14 @@
 
         <div class="method-description">
           
-          
+          <p>Aktualizuje cenę przedmiotu dodanego wcześniej do listy obserwowanych na
+obowiązującą obecnie.</p>
           
           
 
           
           <div class="method-source-code" id="update_prices-source">
-            <pre><span class="ruby-comment"># File app/controllers/notifications_controller.rb, line 41</span>
+            <pre><span class="ruby-comment"># File app/controllers/notifications_controller.rb, line 51</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update_prices</span>
   <span class="ruby-ivar">@notifications</span> = <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">user_id:</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>)
   <span class="ruby-ivar">@notifications</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">nf</span><span class="ruby-operator">|</span>

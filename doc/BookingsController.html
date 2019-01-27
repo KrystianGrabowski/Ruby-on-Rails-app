@@ -94,6 +94,8 @@
 
   <section class="description">
     
+<p>Kontroler umożliwiający dokonywanie rezerwacji.</p>
+
   </section>
 
   
@@ -126,13 +128,14 @@
 
         <div class="method-description">
           
-          
+          <p>Tworzy nowy obiekt klasy <a href="Booking.html">Booking</a>. Przekierowuje
+do strony produktu.</p>
           
           
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/bookings_controller.rb, line 5</span>
+            <pre><span class="ruby-comment"># File app/controllers/bookings_controller.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
   <span class="ruby-identifier">product</span> = <span class="ruby-constant">Product</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:booking</span>][<span class="ruby-value">:product_id</span>])
   <span class="ruby-identifier">outcome</span> = <span class="ruby-constant">CreateBooking</span>.<span class="ruby-identifier">run</span>(<span class="ruby-value">user:</span> <span class="ruby-identifier">current_user</span>, <span class="ruby-value">product:</span> <span class="ruby-identifier">product</span>)
@@ -166,13 +169,14 @@
 
         <div class="method-description">
           
-          
+          <p>Usuwa rezerwację o id zgodnym z tym przekazanym jako parametr.
+Przekierowuje na stronę główną aplikacji.</p>
           
           
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/bookings_controller.rb, line 21</span>
+            <pre><span class="ruby-comment"># File app/controllers/bookings_controller.rb, line 30</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy</span>
   <span class="ruby-ivar">@booking</span> = <span class="ruby-constant">Booking</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-ivar">@booking</span>.<span class="ruby-identifier">destroy</span>
@@ -202,13 +206,13 @@
 
         <div class="method-description">
           
-          
+          <p>Tworzy listę wszystkich rezerwacji.</p>
           
           
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/bookings_controller.rb, line 16</span>
+            <pre><span class="ruby-comment"># File app/controllers/bookings_controller.rb, line 23</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
   <span class="ruby-identifier">add_breadcrumb</span> <span class="ruby-string">&#39;Bookings&#39;</span>, <span class="ruby-value">:bookings_path</span>
   <span class="ruby-ivar">@bookings</span> = <span class="ruby-constant">Booking</span>.<span class="ruby-identifier">all</span>
@@ -236,13 +240,14 @@
 
         <div class="method-description">
           
-          
+          <p>Przywraca możliwość wypożyczenia produktu o id zgodnym z tym przekazanym
+jako parametr. Przekierowuje do listy wszystkich rezerwacji.</p>
           
           
 
           
           <div class="method-source-code" id="restore-source">
-            <pre><span class="ruby-comment"># File app/controllers/bookings_controller.rb, line 28</span>
+            <pre><span class="ruby-comment"># File app/controllers/bookings_controller.rb, line 39</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">restore</span>
   <span class="ruby-ivar">@booking</span> = <span class="ruby-constant">Booking</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-ivar">@product</span> = <span class="ruby-constant">Product</span>.<span class="ruby-identifier">find</span>(<span class="ruby-ivar">@booking</span>.<span class="ruby-identifier">product_id</span>)
@@ -273,13 +278,13 @@
 
         <div class="method-description">
           
-          
+          <p>Tworzy listę wszystkich rezerwacji związanych z danym użytkownkiem.</p>
           
           
 
           
           <div class="method-source-code" id="user_bookings-source">
-            <pre><span class="ruby-comment"># File app/controllers/bookings_controller.rb, line 36</span>
+            <pre><span class="ruby-comment"># File app/controllers/bookings_controller.rb, line 48</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">user_bookings</span>
   <span class="ruby-identifier">add_breadcrumb</span> <span class="ruby-string">&#39;Bookings&#39;</span>, <span class="ruby-value">:bookings_user_bookings_path</span>
   <span class="ruby-ivar">@current_name</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">email</span>

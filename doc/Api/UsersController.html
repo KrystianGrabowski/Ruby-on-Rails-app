@@ -120,13 +120,13 @@
 
         <div class="method-description">
           
-          
+          <p>Sprawdzenie czy email jest poprawny</p>
           
           
 
           
           <div class="method-source-code" id="email_correct-source">
-            <pre><span class="ruby-comment"># File app/controllers/api/users_controller.rb, line 7</span>
+            <pre><span class="ruby-comment"># File app/controllers/api/users_controller.rb, line 10</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">email_correct</span>
   <span class="ruby-comment"># render json: !/^[0-9a-zA-Z_.-]+@[0-9a-zA-Z.-]+\.[a-zA-Z]{2,3}$/.match(params[:email]).nil?</span>
   <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-operator">!</span><span class="ruby-constant">Devise</span>.<span class="ruby-identifier">email_regexp</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:email</span>]).<span class="ruby-identifier">nil?</span>
@@ -154,13 +154,13 @@
 
         <div class="method-description">
           
-          
+          <p>Sprawdzenie czy email już istnieje w bazie</p>
           
           
 
           
           <div class="method-source-code" id="email_exists-source">
-            <pre><span class="ruby-comment"># File app/controllers/api/users_controller.rb, line 3</span>
+            <pre><span class="ruby-comment"># File app/controllers/api/users_controller.rb, line 5</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">email_exists</span>
   <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-constant">User</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">email:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:email</span>]).<span class="ruby-identifier">exists?</span>
 <span class="ruby-keyword">end</span></pre>

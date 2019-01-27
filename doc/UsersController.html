@@ -96,6 +96,8 @@
 
   <section class="description">
     
+<p>Kontroler odpowiedzialny za użytkowników.</p>
+
   </section>
 
   
@@ -128,13 +130,14 @@
 
         <div class="method-description">
           
-          
+          <p>Znajduje użytkownika po numerze identyfikacyjnym, usuwa go, przenosi do
+listy wszystkich użytkowników oraz wyświetla notkę informacyjną.</p>
           
           
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 31</span>
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 39</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy</span>
   <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">destroy</span>
@@ -166,13 +169,14 @@
 
         <div class="method-description">
           
-          
+          <p>Znajduje użytkownika po numerze identyfikacyjnym, dodaje okruchy oraz
+przenosi do strony umożliwiającej obróbkę danych użytkownika.</p>
           
           
 
           
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 11</span>
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">edit</span>
   <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-identifier">add_breadcrumb</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">display_name</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-value">:user_path</span>
@@ -200,13 +204,13 @@
 
         <div class="method-description">
           
-          
+          <p>@return [User] Zwraca wszystkich użytkowników.</p>
           
           
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 27</span>
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 34</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
   <span class="ruby-ivar">@users</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">all</span>
 <span class="ruby-keyword">end</span></pre>
@@ -233,13 +237,14 @@
 
         <div class="method-description">
           
-          
+          <p>Znajduje użytkownika po numerze identyfikacyjnym, dodaje okruchy oraz
+wyświetla jego komentarze.</p>
           
           
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 5</span>
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 8</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>
   <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-identifier">add_breadcrumb</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">display_name</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-value">:user_path</span>
@@ -268,13 +273,14 @@
 
         <div class="method-description">
           
-          
+          <p>Znajduje użytkownika po numerze identyfikacyjnym, przenosi do strony
+użytkownika oraz wyświetla notkę informacyjną.</p>
           
           
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 16</span>
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 21</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update</span>
   <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">user_params</span>)
@@ -304,13 +310,13 @@
 
         <div class="method-description">
           
-          
+          <p>@return zwraca parametry użytkownika.</p>
           
           
 
           
           <div class="method-source-code" id="user_params-source">
-            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 23</span>
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 29</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">user_params</span>
   <span class="ruby-identifier">params</span>.<span class="ruby-identifier">require</span>(<span class="ruby-value">:user</span>).<span class="ruby-identifier">permit!</span>
 <span class="ruby-keyword">end</span></pre>
