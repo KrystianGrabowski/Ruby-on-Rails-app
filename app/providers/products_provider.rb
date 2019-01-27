@@ -1,7 +1,7 @@
-# Provider/dostawca produktów 
+# Provider/dostawca produktów
 class ProductsProvider
   attr_reader :results
-  
+
   # Inicializacja względem klucza
   def initialize(key)
     @results = Product.all

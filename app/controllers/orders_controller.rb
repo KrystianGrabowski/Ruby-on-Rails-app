@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
     @orders = current_user.orders
   end
 
-  # Szczegóły zamówienia 
+  # Szczegóły zamówienia
   def show
     @order = attach_order
   end

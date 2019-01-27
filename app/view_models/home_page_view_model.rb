@@ -1,4 +1,4 @@
-# ViedModel produktów umożliwiający pokazanie wybranych produktów jako wyróżnione 
+# ViedModel produktów umożliwiający pokazanie wybranych produktów jako wyróżnione
 class HomePageViewModel
   # Promowany (bo najnowszy) produkt
   def featured_product

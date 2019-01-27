@@ -1,7 +1,6 @@
-# Kontroler odpowiedzialny za produkty i akcje z nimi związanymi 
+# Kontroler odpowiedzialny za produkty i akcje z nimi związanymi
 class ProductsController < InheritedResources::Base
-
-  # Autoryzacja admina przed akcjami administracyjnymi 
+  # Autoryzacja admina przed akcjami administracyjnymi
   before_action :authenticate_admin_user!, except: %i[index show show_picture down show_price reservation add_to_cart]
 
   # Dodanie okruszków
@@ -26,7 +25,7 @@ class ProductsController < InheritedResources::Base
 
   # Funkcja pomocnicza do index (w celach obejścia rubocopa)
   def index_rubcop_help
-    @products = @products.where(category: params[:category]) unless params[:category].nil? 
+    @products = @products.where(category: params[:category]) unless params[:category].nil?
     @products_all = @products
     @products = @products.page(params[:page]).per(5)
     @view_model = HomePageViewModel.new
@@ -76,7 +75,7 @@ class ProductsController < InheritedResources::Base
     @products = @products.reorder(sorting) if sorting.in? ['created_at desc', 'created_at asc']
   end
 
-  # Metoda tworząca odnośniki do sortowania względem wszystkich kategorii 
+  # Metoda tworząca odnośniki do sortowania względem wszystkich kategorii
   def cat(_path, other_params)
     @string = '' # + path.to_s + '<br>' + other_params.to_s + '<br>'
     tab = []

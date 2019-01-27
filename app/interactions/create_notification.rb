@@ -3,7 +3,7 @@
 class CreateNotification < ActiveInteraction::Base
   # Obecny użytownik
   object :user, default: nil
-  # Produkt 
+  # Produkt
   object :product
 
   # Tworzy powiadomienie.
@@ -12,7 +12,7 @@ class CreateNotification < ActiveInteraction::Base
     owner_update
   end
 
-  # Tworzy nowy obiekt klasy Notification. Przypisuje mu obecną cenę przedmiotu +product+::.  
+  # Tworzy nowy obiekt klasy Notification. Przypisuje mu obecną cenę przedmiotu +product+::.
   def create_obj
     @notification = Notification.new(product_id: product.id)
     @notification.update former_price: product.price

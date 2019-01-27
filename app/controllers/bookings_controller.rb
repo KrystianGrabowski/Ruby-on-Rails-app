@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     redirect_to product
   end
 
-  # Tworzy listę wszystkich rezerwacji.  
+  # Tworzy listę wszystkich rezerwacji.
   def index
     add_breadcrumb 'Bookings', :bookings_path
     @bookings = Booking.all

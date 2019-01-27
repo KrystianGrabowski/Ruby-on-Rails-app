@@ -1,9 +1,9 @@
 # Klasa umożliwiająca dodanie produktu do koszyka.
 
 class AddToCart < ActiveInteraction::Base
-  # Obecny użytownik 
+  # Obecny użytownik
   object :guest
-  # Produkt do dodania 
+  # Produkt do dodania
   object :product
 
   # Dodaje +product+:: do koszyka +guest+::.

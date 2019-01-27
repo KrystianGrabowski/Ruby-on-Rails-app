@@ -30,7 +30,7 @@ class CommentsController < ApplicationController
     flash[:notice] = 'Comment reported!'
   end
 
-  # Usunięcie oznaczenia komentarza jako zareportowanego 
+  # Usunięcie oznaczenia komentarza jako zareportowanego
   def undo_report
     @comment = Comment.find(params[:id])
     @comment.update review_request: false
@@ -38,7 +38,7 @@ class CommentsController < ApplicationController
     flash[:notice] = 'Request rejected!'
   end
 
-  # Dostęp do wszystkich oznaczonych komentarzy 
+  # Dostęp do wszystkich oznaczonych komentarzy
   def reported
     @reported_comments = Comment.where(review_request: true)
     add_breadcrumb 'Reported comments', comments_reported_path

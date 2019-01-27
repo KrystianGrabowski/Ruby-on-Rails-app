@@ -3,7 +3,7 @@
 class NotificationsController < ApplicationController
   before_action :authenticate_user!
 
-  # Tworzy listę wszystkich powiadomień powiązanych z obecnie zalogowanym użytkownkiem. 
+  # Tworzy listę wszystkich powiadomień powiązanych z obecnie zalogowanym użytkownkiem.
   def index
     add_breadcrumb 'Notifications', :notifications_index_path
     @current_name = current_user.email
