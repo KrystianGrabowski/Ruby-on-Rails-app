@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>Table of Contents - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" class="table-of-contents">
+<main role="main">
+<h1 class="class">Table of Contents - RDoc Documentation</h1>
+
+<h2 id="pages">Pages</h2>
+<ul>
+  <li class="file">
+    <a href="Gemfile.html">Gemfile</a>
+  </li>
+    <li class="file">
+    <a href="Gemfile_lock.html">Gemfile.lock</a>
+  </li>
+    <li class="file">
+    <a href="README_md.html">README</a>
+
+    <ul>
+      <li><a href="README_md.html#label-README">README</a>
+    </ul>
+  </li>
+    <li class="file">
+    <a href="Rakefile.html">Rakefile</a>
+  </li>
+    <li class="file">
+    <a href="app/assets/config/manifest_js.html">manifest.js</a>
+  </li>
+    <li class="file">
+    <a href="app/assets/javascripts/active_admin_js_coffee.html">active_admin.js.coffee</a>
+
+    <ul>
+      <li><a href="app/assets/javascripts/active_admin_js_coffee.html#label-require+active_admin-2Fbase">require active_admin/base</a>
+    </ul>
+  </li>
+    <li class="file">
+    <a href="app/assets/javascripts/application_js.html">application.js</a>
+  </li>
+    <li class="file">
+    <a href="app/assets/javascripts/cable_js.html">cable.js</a>
+  </li>
+    <li class="file">
+    <a href="app/assets/stylesheets/active_admin_scss.html">active_admin.scss</a>
+  </li>
+    <li class="file">
+    <a href="app/assets/stylesheets/application_scss.html">application.scss</a>
+  </li>
+    <li class="file">
+    <a href="app/assets/stylesheets/notifications_scss.html">notifications.scss</a>
+  </li>
+    <li class="file">
+    <a href="app/assets/stylesheets/scaffolds_scss.html">scaffolds.scss</a>
+  </li>
+    <li class="file">
+    <a href="app/assets/stylesheets/search_sass.html">search.sass</a>
+  </li>
+    <li class="file">
+    <a href="app/views/bookings/index_html_slim.html">index.html.slim</a>
+  </li>
+    <li class="file">
+    <a href="app/views/bookings/user_bookings_slim.html">user_bookings.slim</a>
+  </li>
+    <li class="file">
+    <a href="app/views/carts/index_html_slim.html">index.html.slim</a>
+
+    <ul>
+      <li><a href="app/views/carts/index_html_slim.html#label-button_to+-27Rezerwacja+produkt-C3-B3w+z+koszyka-27-2C+finalize_cart_path-28-40cart-29-2C+data-3A+-7B+confirm-3A+-22Jeste-C5-9B+pewny-3F+B-C4-99dzie+Ci-C4-99+to+kosztowa-C5-82o+-23-7Bnumber_to_currency-28-40value-2Clocale-3A+-3Apl-29-3C-3C-27+PLN-27-7D-22+-7D">button_to &#39;Rezerwacja produktów z koszyka&#39;, finalize_cart_path(@cart), data: { confirm: “Jesteś pewny? Będzie Cię to kosztowało #{number_to_currency(@value,locale: :pl)&lt;&lt;&#39; PLN&#39;}” }</a>
+    </ul>
+  </li>
+    <li class="file">
+    <a href="app/views/comments/reported_html_slim.html">reported.html.slim</a>
+  </li>
+    <li class="file">
+    <a href="app/views/devise/confirmations/new_html_slim.html">new.html.slim</a>
+
+    <ul>
+      <li><a href="app/views/devise/confirmations/new_html_slim.html#label-form_for-28resource-2C+as-3A+resource_name-2C+url-3A+confirmation_path-28resource_name-29-2C+html-3A+-7B+method-3A+-3Apost+-7D-29+do+-7Cf-7C">form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|</a>
+      <li><a href="app/views/devise/confirmations/new_html_slim.html#label-render+-22devise-2Fshared-2Flinks-22">render “devise/shared/links”</a>
+    </ul>
+  </li>
+    <li class="file">
+    <a href="app/views/devise/mailer/confirmation_instructions_html_slim.html">confirmation_instructions.html.slim</a>
+  </li>
+    <li class="file">
+    <a href="app/views/devise/mailer/email_changed_html_slim.html">email_changed.html.slim</a>
+  </li>
+    <li class="file">
+    <a href="app/views/devise/mailer/password_change_html_slim.html">password_change.html.slim</a>
+  </li>
+    <li class="file">
+    <a href="app/views/devise/mailer/reset_password_instructions_html_slim.html">reset_password_instructions.html.slim</a>
+  </li>
+    <li class="file">
+    <a href="app/views/devise/mailer/unlock_instructions_html_slim.html">unlock_instructions.html.slim</a>
+  </li>
+    <li class="file">
+    <a href="app/views/devise/passwords/edit_html_slim.html">edit.html.slim</a>
+
+    <ul>
+      <li><a href="app/views/devise/passwords/edit_html_slim.html#label-form_for-28resource-2C+as-3A+resource_name-2C+url-3A+password_path-28resource_name-29-2C+html-3A+-7B+method-3A+-3Aput+-7D-29+do+-7Cf-7C">form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|</a>
+      <li><a href="app/views/devise/passwords/edit_html_slim.html#label-render+-22devise-2Fshared-2Flinks-22">render “devise/shared/links”</a>
+    </ul>
+  </li>
+    <li class="file">
+    <a href="app/views/devise/passwords/new_html_slim.html">new.html.slim</a>
+
+    <ul>
+      <li><a href="app/views/devise/passwords/new_html_slim.html#label-form_for-28resource-2C+as-3A+resource_name-2C+url-3A+password_path-28resource_name-29-2C+html-3A+-7B+method-3A+-3Apost+-7D-29+do+-7Cf-7C">form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|</a>
+      <li><a href="app/views/devise/passwords/new_html_slim.html#label-render+-22devise-2Fshared-2Flinks-22">render “devise/shared/links”</a>
+    </ul>
+  </li>
+    <li class="file">
+    <a href="app/views/devise/registrations/edit_html_slim.html">edit.html.slim</a>
+
+    <ul>
+      <li><a href="app/views/devise/registrations/edit_html_slim.html#label-form_for-28resource-2C+as-3A+resource_name-2C+url-3A+registration_path-28resource_name-29-2C+html-3A+-7B+method-3A+-3Aput+-7D-29+do+-7Cf-7C">form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|</a>
+      <li><a href="app/views/devise/registrations/edit_html_slim.html#label-link_to+-22Back-22-2C+-3Aback">link_to “Back”, :back</a>
+    </ul>
+  </li>
+    <li class="file">
+    <a href="app/views/devise/registrations/new_html_slim.html">new.html.slim</a>
+
+    <ul>
+      <li><a href="app/views/devise/registrations/new_html_slim.html#label-form_for-28resource-2C+as-3A+resource_name-2C+url-3A+registration_path-28resource_name-29-29+do+-7Cf-7C">form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|</a>
+      <li><a href="app/views/devise/registrations/new_html_slim.html#label-render+-22devise-2Fshared-2Flinks-22">render “devise/shared/links”</a>
+    </ul>
+  </li>
+    <li class="file">
+    <a href="app/views/devise/sessions/new_html_slim.html">new.html.slim</a>
+
+    <ul>
+      <li><a href="app/views/devise/sessions/new_html_slim.html#label-form_for-28resource-2C+as-3A+resource_name-2C+url-3A+session_path-28resource_name-29-29+do+-7Cf-7C">form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|</a>
+      <li><a href="app/views/devise/sessions/new_html_slim.html#label-render+-22devise-2Fshared-2Flinks-22">render “devise/shared/links”</a>
+    </ul>
+  </li>
+    <li class="file">
+    <a href="app/views/devise/shared/_links_html_slim.html">_links.html.slim</a>
+
+    <ul>
+      <li><a href="app/views/devise/shared/_links_html_slim.html#label-link_to+-22Log+in-22-2C+new_session_path-28resource_name-29">link_to “Log in”, new_session_path(resource_name)</a>
+      <li><a href="app/views/devise/shared/_links_html_slim.html#label-link_to+-22Sign+up-22-2C+new_registration_path-28resource_name-29">link_to “Sign up”, new_registration_path(resource_name)</a>
+      <li><a href="app/views/devise/shared/_links_html_slim.html#label-link_to+-22Forgot+your+password-3F-22-2C+new_password_path-28resource_name-29">link_to “Forgot your password?”, new_password_path(resource_name)</a>
+      <li><a href="app/views/devise/shared/_links_html_slim.html#label-link_to+-22Didn-27t+receive+confirmation+instructions-3F-22-2C+new_confirmation_path-28resource_name-29">link_to “Didn&#39;t receive confirmation instructions?”, new_confirmation_path(resource_name)</a>
+      <li><a href="app/views/devise/shared/_links_html_slim.html#label-link_to+-22Didn-27t+receive+unlock+instructions-3F-22-2C+new_unlock_path-28resource_name-29">link_to “Didn&#39;t receive unlock instructions?”, new_unlock_path(resource_name)</a>
+      <li><a href="app/views/devise/shared/_links_html_slim.html#label-link_to+-22Sign+in+with+-23-7BOmniAuth-3A-3AUtils.camelize-28provider-29-7D-22-2C+omniauth_authorize_path-28resource_name-2C+provider-29">link_to “Sign in with #{OmniAuth::Utils.camelize(provider)}”, omniauth_authorize_path(resource_name, provider)</a>
+    </ul>
+  </li>
+    <li class="file">
+    <a href="app/views/devise/unlocks/new_html_slim.html">new.html.slim</a>
+
+    <ul>
+      <li><a href="app/views/devise/unlocks/new_html_slim.html#label-form_for-28resource-2C+as-3A+resource_name-2C+url-3A+unlock_path-28resource_name-29-2C+html-3A+-7B+method-3A+-3Apost+-7D-29+do+-7Cf-7C">form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f|</a>
+      <li><a href="app/views/devise/unlocks/new_html_slim.html#label-render+-22devise-2Fshared-2Flinks-22">render “devise/shared/links”</a>
+    </ul>
+  </li>
+    <li class="file">
+    <a href="app/views/layouts/shared/_navbar_html_slim.html">_navbar.html.slim</a>
+
+    <ul>
+      <li><a href="app/views/layouts/shared/_navbar_html_slim.html#label-render_breadcrumbs">render_breadcrumbs</a>
+    </ul>
+  </li>
+    <li class="file">
+    <a href="app/views/notifications/index_html_slim.html">index.html.slim</a>
+  </li>
+    <li class="file">
+    <a href="app/views/orders/index_html_slim.html">index.html.slim</a>
+  </li>
+    <li class="file">
+    <a href="app/views/orders/show_html_slim.html">show.html.slim</a>
+
+    <ul>
+      <li><a href="app/views/orders/show_html_slim.html#label-form_for+-40order-2C+url-3A+confirm_user_panel_order_path-28-40order-29+do+-7Cf-7C">form_for @order, url: confirm_user_panel_order_path(@order) do |f|</a>
+      <li><a href="app/views/orders/show_html_slim.html#label-f.submit+-27Z-C5-82-C3-B3-C5-BC+zam-C3-B3wienie-27-2C+class-3A+-27btn+btn-primary-27">f.submit &#39;Złóż zamówienie&#39;, class: &#39;btn btn-primary&#39;</a>
+    </ul>
+  </li>
+    <li class="file">
+    <a href="app/views/pages/about_html_slim.html">about.html.slim</a>
+  </li>
+    <li class="file">
+    <a href="app/views/pages/contact_html_slim.html">contact.html.slim</a>
+  </li>
+    <li class="file">
+    <a href="app/views/pages/home_html_slim.html">home.html.slim</a>
+  </li>
+    <li class="file">
+    <a href="app/views/products/_form_html_slim.html">_form.html.slim</a>
+
+    <ul>
+      <li><a href="app/views/products/_form_html_slim.html#label-form_for+-40product+do+-7Cf-7C">form_for @product do |f|</a>
+    </ul>
+  </li>
+    <li class="file">
+    <a href="app/views/products/_product_json_jbuilder.html">_product.json.jbuilder</a>
+  </li>
+    <li class="file">
+    <a href="app/views/products/edit_html_slim.html">edit.html.slim</a>
+
+    <ul>
+      <li><a href="app/views/products/edit_html_slim.html#label-render+-27form-27">render &#39;form&#39;</a>
+      <li><a href="app/views/products/edit_html_slim.html#label-3E+link_to+-27Show-27-2C+-40product">&gt; link_to &#39;Show&#39;, @product</a>
+      <li><a href="app/views/products/edit_html_slim.html#label-3C+link_to+-27Back-27-2C+products_path">&lt; link_to &#39;Back&#39;, products_path</a>
+    </ul>
+  </li>
+    <li class="file">
+    <a href="app/views/products/index_html_slim.html">index.html.slim</a>
+
+    <ul>
+      <li><a href="app/views/products/index_html_slim.html#label-paginate+-40products">paginate @products</a>
+    </ul>
+  </li>
+    <li class="file">
+    <a href="app/views/products/index_json_jbuilder.html">index.json.jbuilder</a>
+  </li>
+    <li class="file">
+    <a href="app/views/products/new_html_slim.html">new.html.slim</a>
+
+    <ul>
+      <li><a href="app/views/products/new_html_slim.html#label-render+-27form-27">render &#39;form&#39;</a>
+      <li><a href="app/views/products/new_html_slim.html#label-link_to+-27Back-27-2C+products_path">link_to &#39;Back&#39;, products_path</a>
+    </ul>
+  </li>
+    <li class="file">
+    <a href="app/views/products/reservation_html_slim.html">reservation.html.slim</a>
+  </li>
+    <li class="file">
+    <a href="app/views/products/show_html_slim.html">show.html.slim</a>
+
+    <ul>
+      <li><a href="app/views/products/show_html_slim.html#label-link_to+-27Dodaj+do+koszyka-27-2C+add_to_cart_product_path-28-40product-29+">link_to &#39;Dodaj do koszyka&#39;, add_to_cart_product_path(@product) </a>
+      <li><a href="app/views/products/show_html_slim.html#label-link_to+-27Dodaj+do+obserwowanych-27-2C+add_to_watch_list_notification_path-28-40product-29">link_to &#39;Dodaj do obserwowanych&#39;, add_to_watch_list_notification_path(@product)</a>
+      <li><a href="app/views/products/show_html_slim.html#label-form_for+-40comments+do+-7Cf-7C">form_for @comments do |f|</a>
+    </ul>
+  </li>
+    <li class="file">
+    <a href="app/views/products/show_json_jbuilder.html">show.json.jbuilder</a>
+  </li>
+    <li class="file">
+    <a href="app/views/user/profile/show_html_slim.html">show.html.slim</a>
+  </li>
+    <li class="file">
+    <a href="app/views/users/edit_html_slim.html">edit.html.slim</a>
+
+    <ul>
+      <li><a href="app/views/users/edit_html_slim.html#label-form_for+-40user+do+-7Cf-7C">form_for @user do |f|</a>
+    </ul>
+  </li>
+    <li class="file">
+    <a href="app/views/users/index_html_slim.html">index.html.slim</a>
+  </li>
+    <li class="file">
+    <a href="app/views/users/show_html_slim.html">show.html.slim</a>
+  </li>
+    <li class="file">
+    <a href="config_ru.html">config.ru</a>
+  </li>
+    <li class="file">
+    <a href="config/credentials_yml_enc.html">credentials.yml.enc</a>
+  </li>
+    <li class="file">
+    <a href="config/database_yml_travis.html">database.yml.travis</a>
+  </li>
+    <li class="file">
+    <a href="coverage/assets/0_10_2/application_css.html">application.css</a>
+  </li>
+    <li class="file">
+    <a href="coverage/assets/0_10_2/application_js.html">application.js</a>
+  </li>
+    <li class="file">
+    <a href="coverage/index_html.html">index.html</a>
+  </li>
+    <li class="file">
+    <a href="log/development_log.html">development.log</a>
+  </li>
+    <li class="file">
+    <a href="log/test_log.html">test.log</a>
+  </li>
+    <li class="file">
+    <a href="package_json.html">package.json</a>
+  </li>
+    <li class="file">
+    <a href="public/404_html.html">404.html</a>
+  </li>
+    <li class="file">
+    <a href="public/422_html.html">422.html</a>
+  </li>
+    <li class="file">
+    <a href="public/500_html.html">500.html</a>
+  </li>
+    <li class="file">
+    <a href="public/apple-touch-icon-precomposed_png.html">apple-touch-icon-precomposed.png</a>
+  </li>
+    <li class="file">
+    <a href="public/apple-touch-icon_png.html">apple-touch-icon.png</a>
+  </li>
+    <li class="file">
+    <a href="public/favicon_ico.html">favicon.ico</a>
+  </li>
+    <li class="file">
+    <a href="public/robots_txt.html">robots</a>
+  </li>
+    <li class="file">
+    <a href="tmp/restart_txt.html">restart</a>
+  </li>
+  
+</ul>
+
+<h2 id="classes">Classes and Modules</h2>
+<ul>
+  <li class="module">
+    <a href="ActiveAdmin.html">ActiveAdmin</a>
+  </li>
+  <li class="module">
+    <a href="ActiveRecord.html">ActiveRecord</a>
+  </li>
+  <li class="module">
+    <a href="ActiveSupport.html">ActiveSupport</a>
+  </li>
+  <li class="class">
+    <a href="AddNamesToBooking.html">AddNamesToBooking</a>
+  </li>
+  <li class="class">
+    <a href="AddReviewRequestToComments.html">AddReviewRequestToComments</a>
+  </li>
+  <li class="class">
+    <a href="AddToCart.html">AddToCart</a>
+  </li>
+  <li class="class">
+    <a href="AddUserToNotification.html">AddUserToNotification</a>
+  </li>
+  <li class="class">
+    <a href="AdminUser.html">AdminUser</a>
+  </li>
+  <li class="module">
+    <a href="Api.html">Api</a>
+  </li>
+  <li class="class">
+    <a href="Api/ProductsController.html">Api::ProductsController</a>
+  </li>
+  <li class="class">
+    <a href="Api/UsersController.html">Api::UsersController</a>
+  </li>
+  <li class="module">
+    <a href="ApplicationCable.html">ApplicationCable</a>
+  </li>
+  <li class="class">
+    <a href="ApplicationCable/Channel.html">ApplicationCable::Channel</a>
+  </li>
+  <li class="class">
+    <a href="ApplicationCable/Connection.html">ApplicationCable::Connection</a>
+  </li>
+  <li class="class">
+    <a href="ApplicationController.html">ApplicationController</a>
+  </li>
+  <li class="module">
+    <a href="ApplicationHelper.html">ApplicationHelper</a>
+  </li>
+  <li class="class">
+    <a href="ApplicationJob.html">ApplicationJob</a>
+  </li>
+  <li class="class">
+    <a href="ApplicationMailer.html">ApplicationMailer</a>
+  </li>
+  <li class="class">
+    <a href="ApplicationRecord.html">ApplicationRecord</a>
+  </li>
+  <li class="class">
+    <a href="Booking.html">Booking</a>
+  </li>
+  <li class="class">
+    <a href="BookingsController.html">BookingsController</a>
+  </li>
+  <li class="module">
+    <a href="Bundler.html">Bundler</a>
+  </li>
+  <li class="class">
+    <a href="CartsController.html">CartsController</a>
+  </li>
+  <li class="class">
+    <a href="Comment.html">Comment</a>
+  </li>
+  <li class="class">
+    <a href="CommentsController.html">CommentsController</a>
+  </li>
+  <li class="class">
+    <a href="CreateActiveStorageTables.html">CreateActiveStorageTables</a>
+  </li>
+  <li class="class">
+    <a href="CreateBooking.html">CreateBooking</a>
+  </li>
+  <li class="class">
+    <a href="CreateBookings.html">CreateBookings</a>
+  </li>
+  <li class="class">
+    <a href="CreateComments.html">CreateComments</a>
+  </li>
+  <li class="class">
+    <a href="CreateGuests.html">CreateGuests</a>
+  </li>
+  <li class="class">
+    <a href="CreateNotification.html">CreateNotification</a>
+  </li>
+  <li class="class">
+    <a href="CreateNotifications.html">CreateNotifications</a>
+  </li>
+  <li class="class">
+    <a href="CreateOrderItems.html">CreateOrderItems</a>
+  </li>
+  <li class="class">
+    <a href="CreateOrders.html">CreateOrders</a>
+  </li>
+  <li class="class">
+    <a href="CreateProducts.html">CreateProducts</a>
+  </li>
+  <li class="class">
+    <a href="DeviseCreateAdminUsers.html">DeviseCreateAdminUsers</a>
+  </li>
+  <li class="class">
+    <a href="DeviseCreateModels.html">DeviseCreateModels</a>
+  </li>
+  <li class="class">
+    <a href="DeviseCreateUsers.html">DeviseCreateUsers</a>
+  </li>
+  <li class="module">
+    <a href="Faker.html">Faker</a>
+  </li>
+  <li class="class">
+    <a href="Guest.html">Guest</a>
+  </li>
+  <li class="class">
+    <a href="HomePageViewModel.html">HomePageViewModel</a>
+  </li>
+  <li class="module">
+    <a href="Logger.html">Logger</a>
+  </li>
+  <li class="class">
+    <a href="Model.html">Model</a>
+  </li>
+  <li class="class">
+    <a href="Notification.html">Notification</a>
+  </li>
+  <li class="class">
+    <a href="NotificationsController.html">NotificationsController</a>
+  </li>
+  <li class="module">
+    <a href="NotificationsHelper.html">NotificationsHelper</a>
+  </li>
+  <li class="class">
+    <a href="Object.html">Object</a>
+  </li>
+  <li class="class">
+    <a href="Order.html">Order</a>
+  </li>
+  <li class="class">
+    <a href="OrderItem.html">OrderItem</a>
+  </li>
+  <li class="class">
+    <a href="OrdersController.html">OrdersController</a>
+  </li>
+  <li class="class">
+    <a href="PagesController.html">PagesController</a>
+  </li>
+  <li class="class">
+    <a href="Product.html">Product</a>
+  </li>
+  <li class="class">
+    <a href="ProductSerializer.html">ProductSerializer</a>
+  </li>
+  <li class="class">
+    <a href="ProductsController.html">ProductsController</a>
+  </li>
+  <li class="class">
+    <a href="ProductsProvider.html">ProductsProvider</a>
+  </li>
+  <li class="module">
+    <a href="TestKursRor.html">TestKursRor</a>
+  </li>
+  <li class="class">
+    <a href="TestKursRor/Application.html">TestKursRor::Application</a>
+  </li>
+  <li class="class">
+    <a href="User.html">User</a>
+  </li>
+  <li class="class">
+    <a href="UsersController.html">UsersController</a>
+  </li>
+</ul>
+
+<h2 id="methods">Methods</h2>
+<ul>
+
+  <li class="method">
+    <a href="ProductsProvider.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">ProductsProvider</span>
+
+  <li class="method">
+    <a href="NotificationsController.html#method-c-track_changes">::track_changes</a>
+    &mdash;
+    <span class="container">NotificationsController</span>
+
+  <li class="method">
+    <a href="PagesController.html#method-i-about">#about</a>
+    &mdash;
+    <span class="container">PagesController</span>
+
+  <li class="method">
+    <a href="ProductsController.html#method-i-add_to_cart">#add_to_cart</a>
+    &mdash;
+    <span class="container">ProductsController</span>
+
+  <li class="method">
+    <a href="NotificationsController.html#method-i-add_to_watch_list">#add_to_watch_list</a>
+    &mdash;
+    <span class="container">NotificationsController</span>
+
+  <li class="method">
+    <a href="CreateBooking.html#method-i-amount_update">#amount_update</a>
+    &mdash;
+    <span class="container">CreateBooking</span>
+
+  <li class="method">
+    <a href="Guest.html#method-i-cart">#cart</a>
+    &mdash;
+    <span class="container">Guest</span>
+
+  <li class="method">
+    <a href="Order.html#method-i-cart_check">#cart_check</a>
+    &mdash;
+    <span class="container">Order</span>
+
+  <li class="method">
+    <a href="Order.html#method-i-cart_sum_check">#cart_sum_check</a>
+    &mdash;
+    <span class="container">Order</span>
+
+  <li class="method">
+    <a href="ProductsController.html#method-i-cat">#cat</a>
+    &mdash;
+    <span class="container">ProductsController</span>
+
+  <li class="method">
+    <a href="DeviseCreateModels.html#method-i-change">#change</a>
+    &mdash;
+    <span class="container">DeviseCreateModels</span>
+
+  <li class="method">
+    <a href="DeviseCreateAdminUsers.html#method-i-change">#change</a>
+    &mdash;
+    <span class="container">DeviseCreateAdminUsers</span>
+
+  <li class="method">
+    <a href="CreateProducts.html#method-i-change">#change</a>
+    &mdash;
+    <span class="container">CreateProducts</span>
+
+  <li class="method">
+    <a href="CreateComments.html#method-i-change">#change</a>
+    &mdash;
+    <span class="container">CreateComments</span>
+
+  <li class="method">
+    <a href="DeviseCreateUsers.html#method-i-change">#change</a>
+    &mdash;
+    <span class="container">DeviseCreateUsers</span>
+
+  <li class="method">
+    <a href="AddReviewRequestToComments.html#method-i-change">#change</a>
+    &mdash;
+    <span class="container">AddReviewRequestToComments</span>
+
+  <li class="method">
+    <a href="CreateActiveStorageTables.html#method-i-change">#change</a>
+    &mdash;
+    <span class="container">CreateActiveStorageTables</span>
+
+  <li class="method">
+    <a href="CreateBookings.html#method-i-change">#change</a>
+    &mdash;
+    <span class="container">CreateBookings</span>
+
+  <li class="method">
+    <a href="AddNamesToBooking.html#method-i-change">#change</a>
+    &mdash;
+    <span class="container">AddNamesToBooking</span>
+
+  <li class="method">
+    <a href="CreateGuests.html#method-i-change">#change</a>
+    &mdash;
+    <span class="container">CreateGuests</span>
+
+  <li class="method">
+    <a href="CreateOrders.html#method-i-change">#change</a>
+    &mdash;
+    <span class="container">CreateOrders</span>
+
+  <li class="method">
+    <a href="CreateOrderItems.html#method-i-change">#change</a>
+    &mdash;
+    <span class="container">CreateOrderItems</span>
+
+  <li class="method">
+    <a href="CreateNotifications.html#method-i-change">#change</a>
+    &mdash;
+    <span class="container">CreateNotifications</span>
+
+  <li class="method">
+    <a href="AddUserToNotification.html#method-i-change">#change</a>
+    &mdash;
+    <span class="container">AddUserToNotification</span>
+
+  <li class="method">
+    <a href="Order.html#method-i-check_string">#check_string</a>
+    &mdash;
+    <span class="container">Order</span>
+
+  <li class="method">
+    <a href="PagesController.html#method-i-contact">#contact</a>
+    &mdash;
+    <span class="container">PagesController</span>
+
+  <li class="method">
+    <a href="BookingsController.html#method-i-create">#create</a>
+    &mdash;
+    <span class="container">BookingsController</span>
+
+  <li class="method">
+    <a href="CommentsController.html#method-i-create">#create</a>
+    &mdash;
+    <span class="container">CommentsController</span>
+
+  <li class="method">
+    <a href="CreateBooking.html#method-i-create_obj">#create_obj</a>
+    &mdash;
+    <span class="container">CreateBooking</span>
+
+  <li class="method">
+    <a href="CreateNotification.html#method-i-create_obj">#create_obj</a>
+    &mdash;
+    <span class="container">CreateNotification</span>
+
+  <li class="method">
+    <a href="ApplicationController.html#method-i-current_guest">#current_guest</a>
+    &mdash;
+    <span class="container">ApplicationController</span>
+
+  <li class="method">
+    <a href="CreateBooking.html#method-i-date_update">#date_update</a>
+    &mdash;
+    <span class="container">CreateBooking</span>
+
+  <li class="method">
+    <a href="BookingsController.html#method-i-destroy">#destroy</a>
+    &mdash;
+    <span class="container">BookingsController</span>
+
+  <li class="method">
+    <a href="CommentsController.html#method-i-destroy">#destroy</a>
+    &mdash;
+    <span class="container">CommentsController</span>
+
+  <li class="method">
+    <a href="NotificationsController.html#method-i-destroy">#destroy</a>
+    &mdash;
+    <span class="container">NotificationsController</span>
+
+  <li class="method">
+    <a href="UsersController.html#method-i-destroy">#destroy</a>
+    &mdash;
+    <span class="container">UsersController</span>
+
+  <li class="method">
+    <a href="Product.html#method-i-display_in_pln">#display_in_pln</a>
+    &mdash;
+    <span class="container">Product</span>
+
+  <li class="method">
+    <a href="User.html#method-i-display_name">#display_name</a>
+    &mdash;
+    <span class="container">User</span>
+
+  <li class="method">
+    <a href="Product.html#method-i-display_price">#display_price</a>
+    &mdash;
+    <span class="container">Product</span>
+
+  <li class="method">
+    <a href="Booking.html#method-i-display_status">#display_status</a>
+    &mdash;
+    <span class="container">Booking</span>
+
+  <li class="method">
+    <a href="ProductsController.html#method-i-edit">#edit</a>
+    &mdash;
+    <span class="container">ProductsController</span>
+
+  <li class="method">
+    <a href="UsersController.html#method-i-edit">#edit</a>
+    &mdash;
+    <span class="container">UsersController</span>
+
+  <li class="method">
+    <a href="Api/UsersController.html#method-i-email_correct">#email_correct</a>
+    &mdash;
+    <span class="container">Api::UsersController</span>
+
+  <li class="method">
+    <a href="Api/UsersController.html#method-i-email_exists">#email_exists</a>
+    &mdash;
+    <span class="container">Api::UsersController</span>
+
+  <li class="method">
+    <a href="AddToCart.html#method-i-execute">#execute</a>
+    &mdash;
+    <span class="container">AddToCart</span>
+
+  <li class="method">
+    <a href="CreateBooking.html#method-i-execute">#execute</a>
+    &mdash;
+    <span class="container">CreateBooking</span>
+
+  <li class="method">
+    <a href="CreateNotification.html#method-i-execute">#execute</a>
+    &mdash;
+    <span class="container">CreateNotification</span>
+
+  <li class="method">
+    <a href="HomePageViewModel.html#method-i-featured_product">#featured_product</a>
+    &mdash;
+    <span class="container">HomePageViewModel</span>
+
+  <li class="method">
+    <a href="ProductsProvider.html#method-i-filter_by_key">#filter_by_key</a>
+    &mdash;
+    <span class="container">ProductsProvider</span>
+
+  <li class="method">
+    <a href="CartsController.html#method-i-finalize">#finalize</a>
+    &mdash;
+    <span class="container">CartsController</span>
+
+  <li class="method">
+    <a href="PagesController.html#method-i-home">#home</a>
+    &mdash;
+    <span class="container">PagesController</span>
+
+  <li class="method">
+    <a href="Api/ProductsController.html#method-i-index">#index</a>
+    &mdash;
+    <span class="container">Api::ProductsController</span>
+
+  <li class="method">
+    <a href="BookingsController.html#method-i-index">#index</a>
+    &mdash;
+    <span class="container">BookingsController</span>
+
+  <li class="method">
+    <a href="CartsController.html#method-i-index">#index</a>
+    &mdash;
+    <span class="container">CartsController</span>
+
+  <li class="method">
+    <a href="NotificationsController.html#method-i-index">#index</a>
+    &mdash;
+    <span class="container">NotificationsController</span>
+
+  <li class="method">
+    <a href="OrdersController.html#method-i-index">#index</a>
+    &mdash;
+    <span class="container">OrdersController</span>
+
+  <li class="method">
+    <a href="ProductsController.html#method-i-index">#index</a>
+    &mdash;
+    <span class="container">ProductsController</span>
+
+  <li class="method">
+    <a href="UsersController.html#method-i-index">#index</a>
+    &mdash;
+    <span class="container">UsersController</span>
+
+  <li class="method">
+    <a href="ProductsController.html#method-i-index_rubcop_help">#index_rubcop_help</a>
+    &mdash;
+    <span class="container">ProductsController</span>
+
+  <li class="method">
+    <a href="CreateBooking.html#method-i-name_update">#name_update</a>
+    &mdash;
+    <span class="container">CreateBooking</span>
+
+  <li class="method">
+    <a href="ProductsController.html#method-i-new">#new</a>
+    &mdash;
+    <span class="container">ProductsController</span>
+
+  <li class="method">
+    <a href="HomePageViewModel.html#method-i-new_products">#new_products</a>
+    &mdash;
+    <span class="container">HomePageViewModel</span>
+
+  <li class="method">
+    <a href="CreateBooking.html#method-i-owner_update">#owner_update</a>
+    &mdash;
+    <span class="container">CreateBooking</span>
+
+  <li class="method">
+    <a href="CreateNotification.html#method-i-owner_update">#owner_update</a>
+    &mdash;
+    <span class="container">CreateNotification</span>
+
+  <li class="method">
+    <a href="HomePageViewModel.html#method-i-popular_products">#popular_products</a>
+    &mdash;
+    <span class="container">HomePageViewModel</span>
+
+  <li class="method">
+    <a href="ProductsController.html#method-i-product_params">#product_params</a>
+    &mdash;
+    <span class="container">ProductsController</span>
+
+  <li class="method">
+    <a href="CommentsController.html#method-i-report">#report</a>
+    &mdash;
+    <span class="container">CommentsController</span>
+
+  <li class="method">
+    <a href="CommentsController.html#method-i-reported">#reported</a>
+    &mdash;
+    <span class="container">CommentsController</span>
+
+  <li class="method">
+    <a href="BookingsController.html#method-i-restore">#restore</a>
+    &mdash;
+    <span class="container">BookingsController</span>
+
+  <li class="method">
+    <a href="OrdersController.html#method-i-show">#show</a>
+    &mdash;
+    <span class="container">OrdersController</span>
+
+  <li class="method">
+    <a href="ProductsController.html#method-i-show">#show</a>
+    &mdash;
+    <span class="container">ProductsController</span>
+
+  <li class="method">
+    <a href="UsersController.html#method-i-show">#show</a>
+    &mdash;
+    <span class="container">UsersController</span>
+
+  <li class="method">
+    <a href="ProductsController.html#method-i-sort">#sort</a>
+    &mdash;
+    <span class="container">ProductsController</span>
+
+  <li class="method">
+    <a href="ProductsController.html#method-i-sorting">#sorting</a>
+    &mdash;
+    <span class="container">ProductsController</span>
+
+  <li class="method">
+    <a href="ApplicationHelper.html#method-i-sorting_link">#sorting_link</a>
+    &mdash;
+    <span class="container">ApplicationHelper</span>
+
+  <li class="method">
+    <a href="Object.html#method-i-system-21">#system!</a>
+    &mdash;
+    <span class="container">Object</span>
+
+  <li class="method">
+    <a href="CommentsController.html#method-i-undo_report">#undo_report</a>
+    &mdash;
+    <span class="container">CommentsController</span>
+
+  <li class="method">
+    <a href="UsersController.html#method-i-update">#update</a>
+    &mdash;
+    <span class="container">UsersController</span>
+
+  <li class="method">
+    <a href="NotificationsController.html#method-i-update_prices">#update_prices</a>
+    &mdash;
+    <span class="container">NotificationsController</span>
+
+  <li class="method">
+    <a href="BookingsController.html#method-i-user_bookings">#user_bookings</a>
+    &mdash;
+    <span class="container">BookingsController</span>
+
+  <li class="method">
+    <a href="UsersController.html#method-i-user_params">#user_params</a>
+    &mdash;
+    <span class="container">UsersController</span>
+</ul>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
