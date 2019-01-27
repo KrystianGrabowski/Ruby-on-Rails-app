@@ -1,6 +1,7 @@
 # Kontroler umożliwiający tworzenie oraz zarządzanie listą obserwowanych przedmiotów.
 
 class NotificationsController < ApplicationController
+  # Autoryzacja użytkownika
   before_action :authenticate_user!
 
   # Tworzy listę wszystkich powiadomień powiązanych z obecnie zalogowanym użytkownkiem.
@@ -36,6 +37,7 @@ class NotificationsController < ApplicationController
   end
 
   # Sprawdza czy od momentu dodania do obserowanych do chwili obecnej cena uległa zmianie.
+  # @return bool
   def self.track_changes(user)
     @notifications = Notification.where(user_id: user.id)
     @notifications.each do |nf|

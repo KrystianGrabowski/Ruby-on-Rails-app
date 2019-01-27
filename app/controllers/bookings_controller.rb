@@ -1,7 +1,9 @@
 # Kontroler umożliwiający dokonywanie rezerwacji.
 
 class BookingsController < ApplicationController
+  # Autoryzacja administratora
   before_action :authenticate_admin_user!, only: %i[index destroy]
+  # Autoryzacja użytkownika
   before_action :authenticate_user!, only: %i[user_bookings]
 
   # Tworzy nowy obiekt klasy Booking.
