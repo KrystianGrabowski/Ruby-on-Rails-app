@@ -1,6 +1,9 @@
+# Kontroler umożliwiający tworzenie oraz zarządzanie listą obserwowanych przedmiotów.
+
 class NotificationsController < ApplicationController
   before_action :authenticate_user!
 
+  # Tworzy listę wszystkich powiadomień powiązanych z obecnie zalogowanym użytkownkiem. 
   def index
     add_breadcrumb 'Notifications', :notifications_index_path
     @current_name = current_user.email
@@ -8,6 +11,8 @@ class NotificationsController < ApplicationController
     update_prices
   end
 
+  # Dodaje produkt o id przekazanym jako paramter do listy obserwowanych.
+  # Przekierowuje do listy wszystkich produktów.
   def add_to_watch_list
     product = Product.find(params[:id])
     flash[:notice] = current_user.id
@@ -22,6 +27,7 @@ class NotificationsController < ApplicationController
     redirect_to products_path
   end
 
+  # Usuwa produkt o id przekazanym jako paramter z listy obserwowanych.
   def destroy
     @notification = Notification.find(params[:id])
     @notification.destroy
@@ -29,6 +35,7 @@ class NotificationsController < ApplicationController
     flash[:notice] = 'Notification was destroyed!'
   end
 
+  # Sprawdza czy od momentu dodania do obserowanych do chwili obecnej cena uległa zmianie.
   def self.track_changes(user)
     @notifications = Notification.where(user_id: user.id)
     @notifications.each do |nf|
@@ -38,6 +45,7 @@ class NotificationsController < ApplicationController
     false
   end
 
+  # Aktualizuje cenę przedmiotu dodanego wcześniej do listy obserwowanych na obowiązującą obecnie.
   def update_prices
     @notifications = Notification.where(user_id: current_user.id)
     @notifications.each do |nf|
