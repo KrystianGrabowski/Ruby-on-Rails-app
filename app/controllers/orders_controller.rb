@@ -1,10 +1,13 @@
+# Kontroler odpowiedzialny za zamówienia produktów użytkownika
 class OrdersController < ApplicationController
   before_action :authenticate_user!
 
+  # Listowanie zamówień użytkownika aktualnie zalogowanego
   def index
     @orders = current_user.orders
   end
 
+  # Szczegóły zamówienia 
   def show
     @order = attach_order
   end
